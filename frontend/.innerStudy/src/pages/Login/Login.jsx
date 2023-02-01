@@ -7,7 +7,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { authToken, setAuthToken } = useContext(TokenContext);
-  const [test, setTest] = useState("");
   const navigate = useNavigate();
   const [error, setErrors] = useState("");
 
@@ -30,12 +29,12 @@ function Login() {
           navigate("/mainpage");
           setAuthToken(token);
           window.localStorage.setItem("auth_token", token);
+          console.log(token);
+          console.log(localStorage);
         }
       })
       .catch((error) => {
         if (error.response.status === 422) {
-          const serverErrors = error.response.data.validationErrors;
-          const errors = {};
           setErrors(
             <div>
               The email or password is incorrect. Try again or create a new
