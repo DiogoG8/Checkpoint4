@@ -19,11 +19,20 @@ textarea{
     flex-direction: row;
     justify-content: center;
     gap:2rem;
-    margin-top:2rem;
+    margin-top:4rem;
     text-shadow: 1px 1px 2px black;
 
 }
-
+.title{
+    font-size: 4rem;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+    margin: 5rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+    color: white;
+}
 .flex{    
     display: flex;
     flex-direction: column;
@@ -61,7 +70,7 @@ textarea{
 
     .container0 {
         color: white;
-        height: 55rem;
+        height: 39rem;
             }
 
 
@@ -97,7 +106,8 @@ margin-top: 2rem;
 
         .warning{
             align-self: center;
-            margin-top: 15rem;
+            margin-top: 2rem;
+            text-shadow: 1px 1px 2px black;
         }
 
 
@@ -120,10 +130,11 @@ margin-top: 5rem;
         @media only screen and (min-width: 320px) and (max-width:426px) {
     
             .title{
-            font-size: 3rem;
-            text-shadow: 1px 1px 2px black;
-            text-align: center;
-        }
+                font-size: 2.5rem;
+                text-shadow: 1px 1px 2px black;
+                text-align: center;
+            }
+            
         
         
         .container1 {
@@ -141,8 +152,8 @@ margin-top: 5rem;
         
             .container0 {
                 color: white;
-                margin-top:5.5rem;
-                height: 43rem;
+                margin-top:1rem;
+                height: 37rem;
                     }
                     .checkbox1{
                         height: 3rem;
@@ -167,8 +178,8 @@ margin-top: 5rem;
 
                     .warning{
                         align-self: center;
-                        margin-top: 5rem;
-                        margin-bottom: 1rem;
+                        margin-top: 0rem;
+                        margin-bottom: 3rem;
                         width: 16rem;
                         text-align: center;
                     }

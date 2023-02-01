@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import GButton from "../../components/Gbutton";
 import styles from "../Contact Us/ContactUs.module.css";
+import Footer from "../../components/footer";
+import Navbar from "../../components/navbar";
 
 function ContactUs() {
   const [formsubmit, setFormsubmit] = useState(false);
@@ -24,6 +26,8 @@ function ContactUs() {
 
   return (
     <>
+      <Navbar />
+      <div className={styles.title}>.innerStudy</div>
       <div className={styles.container0}>
         <div className={styles.container1}>
           <form className={styles.container2}>
@@ -109,6 +113,7 @@ function ContactUs() {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

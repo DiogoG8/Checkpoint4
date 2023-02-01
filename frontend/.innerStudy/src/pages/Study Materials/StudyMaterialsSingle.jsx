@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../Study Materials/StudySingle.module.css";
+import Footer from "../../components/footer";
 
 function StudyMaterialsSingle() {
   const [topic, setTopic] = useState("");
@@ -20,6 +21,10 @@ function StudyMaterialsSingle() {
 
   return (
     <>
+      <div className={styles.title}>.innerStudy</div>
+      <div className={styles.warning}>
+        🪄 Today you will learn about {topic}!
+      </div>
       <div className={styles.container1}>
         <div className={styles.mainc}>
           <div className={styles.secc}>{topic}</div>
@@ -33,6 +38,7 @@ function StudyMaterialsSingle() {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

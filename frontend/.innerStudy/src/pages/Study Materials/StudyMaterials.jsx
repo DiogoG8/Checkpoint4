@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import styles from "../Study Materials/StudyMaterials.module.css";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
 
 function StudyMaterials({ content }) {
   return (
     <>
+      <Navbar />
+      <div className={styles.title}>.innerStudy</div>
+      <div className={styles.warning}>📖 Learn about your favorite topics!</div>
       <div className={styles.container1}>
         <div className={styles.mainc}>
           {content.slice(1, 2).map((contentinfo) => (
@@ -86,6 +91,7 @@ function StudyMaterials({ content }) {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

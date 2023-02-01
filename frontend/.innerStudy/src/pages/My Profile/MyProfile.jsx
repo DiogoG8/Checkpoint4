@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../My Profile/Myprofile.module.css";
+import Footer from "../../components/footer";
+import Navbar from "../../components/navbar";
 
 /* Might need two save buttons*/
 function MyProfile() {
@@ -32,10 +34,12 @@ function MyProfile() {
 
   return (
     <>
+      <Navbar />
+      <div className={styles.title}>.innerStudy</div>
       <div className={styles.container0}>
         <div className={styles.container1}>
           <div className={styles.warning}>
-            ⚠ Be Careful Upon Sharing Sensitive Information!
+            &#9888;&#65039; Be careful upon sharing sensitive information!
           </div>
           <form className={styles.container2}>
             <div>
@@ -79,6 +83,7 @@ function MyProfile() {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
