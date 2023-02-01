@@ -1,0 +1,108 @@
+input{
+    height: 3rem;
+    width: 16rem;
+    align-self: center;
+    border-color: black;
+    
+}
+
+textarea{
+    height: 3rem;
+    width: 16rem;
+    align-self: center;
+    border-color: black;
+}
+
+.container2 {
+    background-color: lightslategray;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    margin-top:5rem;
+    text-shadow: 1px 1px 2px black;
+
+}
+
+.flex{    
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.checkbox1{
+    height: 2rem;
+    width: 40rem;
+}
+.checkbox2{
+    height: 10rem;
+    width: 40rem;
+}
+
+.container1 {
+    align-self: center;
+        background-color:lightslategray;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 20px;
+        text-align: left;        
+      
+    }
+
+    .container0 {
+        color: white;
+        height: 45rem;
+            }
+
+
+
+        select{
+            width:10rem;
+            height: 2rem;
+            margin-top: 5px;
+            margin-left: 12.7rem;
+        }  
+
+        .select{
+
+                width:10rem;
+                height: 2rem;
+                margin-top: 5px;
+                margin-left: 27.8rem;
+
+    
+        }
+
+        .button1 {
+            width: 10rem;
+        align-self: left;
+        border-radius: 3rem;
+            font-size:0.7rem;
+height:3rem;
+margin-top: 15rem;
+margin-left: 10rem;
+        
+        }
+
+        .button2 {
+            width: 10rem;
+            align-self: center;
+  border-radius: 3rem;
+            font-size:0.7rem;
+height:3rem;
+margin-top: 2rem;
+        
+        }
+
+
+  
+
+        .link {
+            align-self: center;
+            text-shadow: none;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 0rem;
+            margin-top: 5rem;
+            color: black;
+        }

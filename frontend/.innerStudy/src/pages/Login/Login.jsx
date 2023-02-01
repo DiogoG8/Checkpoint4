@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import TokenContext from "../../contexts/authtoken";
+import styles from "../Login/Login.module.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -50,35 +51,43 @@ function Login() {
   }
 
   return (
-    <>
-      <form>
-        <label htmlFor="email">Email</label>
-        <textarea
-          onChange={(e) => setEmail(e.target.value)}
-          id="email"
-          name="email"
-          type="text"
-          value={email}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          id="password"
-          name="password"
-          type="text"
-          value={password}
-        />
-      </form>
+    <div className={styles.container0}>
+      <div className={styles.title}>
+        .innerStudy
+        <div className={styles.container1}>
+          <form className={styles.container2}>
+            <div className={styles.flex}>
+              <label htmlFor="email">Email</label>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                id="email"
+                name="email"
+                type="text"
+                value={email}
+              />
+            </div>
+            <div className={styles.flex}>
+              <label htmlFor="password">Password</label>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                id="password"
+                name="password"
+                type="text"
+                value={password}
+              />
+            </div>
+          </form>
+          <button className={styles.button} onClick={handleSubmit}>
+            <h3>Sign In</h3>
+          </button>
+          {error}
 
-      <button onClick={handleSubmit}>
-        <h3>Sign In</h3>
-      </button>
-      {error}
-
-      <button>
-        <Link to="/register">Not a member? Sign Up Now!</Link>
-      </button>
-    </>
+          <Link className={styles.link} to="/register">
+            Not a member? Sign Up Now!
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
 
