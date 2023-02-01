@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const userHandlers = require("./users/userHandlers");
+
 //Testing if the App listens and if
 app.listen(port, (err) => {
   if (err) {
@@ -31,3 +33,8 @@ app.get("/", (req, res) => {
       console.error(err);
     });
 });
+
+//Users
+app.get("/api/users/:id", userHandlers.getUserInfo); //DONE
+app.put("/api/users/:id", validateUserChanges, userHandlers.updateUserInfo); //DONE
+app.post("/api/users", userHandlers.postNewUser); // DONE
