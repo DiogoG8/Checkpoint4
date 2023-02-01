@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const userHandlers = require("./users/userHandlers");
+const contentHandlers = require("./content/contentHandlers");
 const {
   validateUserRegister,
   validateUserChanges,
@@ -43,3 +44,7 @@ app.get("/", (req, res) => {
 app.get("/api/users/:id", userHandlers.getUserInfo); //DONE
 app.put("/api/users/:id", validateUserChanges, userHandlers.updateUserInfo); //DONE
 app.post("/api/users", userHandlers.postNewUser); // DONE
+
+//Content
+app.get("/api/content/:id", contentHandlers.getContentByUser); //DONE
+app.get("/api/content", contentHandlers.getContent); //DONE
