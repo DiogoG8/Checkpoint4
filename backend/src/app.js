@@ -9,6 +9,11 @@ app.use(cors());
 app.use(express.json());
 
 const userHandlers = require("./users/userHandlers");
+const {
+  validateUserRegister,
+  validateUserChanges,
+  validateLogin,
+} = require("./users/userValidators");
 
 //Testing if the App listens and if
 app.listen(port, (err) => {
