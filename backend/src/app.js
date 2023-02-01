@@ -1,0 +1,33 @@
+require("dotenv").config();
+const port = process.env.BACKEND_PORT ?? 5000;
+const express = require("express");
+const cors = require("cors");
+const database = require("./database");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+//Testing if the App listens and if
+app.listen(port, (err) => {
+  if (err) {
+    console.error("Something bad happened");
+  } else {
+    console.log(`Server is listening on ${port}`);
+  }
+});
+
+const welcome = (req, res) => {
+  res.send("This is my last checkpoint :'(");
+};
+
+app.get("/", (req, res) => {
+  database
+    .getConnection()
+    .then(() => {
+      res.status(200).send("Welcome to the Checkpoint 4 :)");
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
