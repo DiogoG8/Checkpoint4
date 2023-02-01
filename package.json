@@ -1,0 +1,22 @@
+{
+  "name": "ch4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm --prefix ./frontend/.innerStudy run dev\" \"npm --prefix ./backend run dev\"",
+    "dev-front": "npm --prefix ./frontend/.innerStudy run dev",
+    "dev-back": "npm --prefix ./backend run dev",
+    "setup-npm": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm --prefix ./frontend/.innerStudy install\" \"npm --prefix ./backend install\"",
+    "setup-pnpm": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"pnpm --prefix ./frontend/.innerStudy install\" \"pnpm --prefix ./backend install\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.6",
+    "concurrently": "^7.6.0",
+    "react-router-dom": "^6.8.0"
+  }
+}
