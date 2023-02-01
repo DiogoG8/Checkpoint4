@@ -8,11 +8,14 @@ import MyProfile from "./pages/My Profile/MyProfile";
 import StudyMaterials from "./pages/Study Materials/StudyMaterials";
 import StudyMaterialsSingle from "./pages/Study Materials/StudyMaterialsSingle";
 import TokenContext from "./contexts/authtoken";
+import axios from "axios";
 
 import { Link, Route, Router, Routes } from "react-router-dom";
 
 function App() {
   const [authToken, setAuthToken] = useState();
+  const [content, setContent] = useState([]);
+
   useEffect(() => {
     if (authToken != null || window == null) return;
 
@@ -23,6 +26,14 @@ function App() {
       return;
     }
   }, [authToken]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5005/api/content`)
+      .then((response) => response.data)
+      .then((data) => setContent(data));
+  }, []);
+
   return (
     <>
       <TokenContext.Provider
@@ -34,7 +45,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/myprofile" element={<MyProfile />} />
-          <Route path="/studymaterials" element={<StudyMaterials />} />
+          <Route
+            path="/studymaterials"
+            element={<StudyMaterials content={content} />}
+          />
           <Route
             path="/studymaterials/:id"
             element={<StudyMaterialsSingle />}
