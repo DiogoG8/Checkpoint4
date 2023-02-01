@@ -1,0 +1,86 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+.button1 {
+    width: 10rem;
+align-self: left;
+border-radius: 3rem;
+    font-size:0.7rem;
+height:3rem;
+margin-top: 7rem;
+
+}
+.link {
+    align-self: center;
+    text-shadow: none;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0rem;
+    margin-top: 5rem;
+    color: black;
+}
+
+
+.mainc{
+    margin-top: 20rem;
+    background: lightcoral;
+    border-radius: 2rem;
+    border: 2px solid black;
+    
+    
+}
+
+.mainc1{
+    margin-top: 5rem;
+    background: lightcoral;
+    border-radius: 2rem;
+    border: 2px solid black;
+    
+    
+}
+
+.container1{
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 55rem;
+}
+
+.secc{
+
+    padding: 50px 50px 0px 50px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px black;
+}
+
+
+.tcc{
+
+    padding: 25px 50px 50px 50px;
+    text-align: justify;
+}
+
+.link1 {
+    align-self: center;
+    text-shadow: none;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0rem;
+    margin-top: 5rem;
+    font-weight: 800;
+    color: black;
+    border-radius: 20px;
+   width: 50px;
+    
+}
+
+.test{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 25px;
+    font-size:1.5rem;
+    
+}

@@ -14,7 +14,7 @@ function MainPage() {
   return (
     <>
       <button>
-        <Link to="/mainpage">News</Link>
+        <Link to="/mainpage">Main Page</Link>
       </button>
       <button>
         <Link to="/studymaterials">Study Materials</Link>

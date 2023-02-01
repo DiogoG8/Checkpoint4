@@ -24,19 +24,13 @@ function ContactUs() {
 
   return (
     <>
-      <div className={styles.header}>
-        <button className={styles.button1}>
-          <Link className={styles.link} to="/mainpage">
-            <h3>Go Back</h3>
-          </Link>
-        </button>
-      </div>
       <div className={styles.container0}>
         <div className={styles.container1}>
           <form className={styles.container2}>
+            <div className={styles.warning}>📪 Send Us your message!</div>
             <div>
               <div className={styles.select}>Topic</div>
-              <select className={styles.select}>
+              <select>
                 <option>Log In Problems</option>
                 <option>Website Performance</option>
                 <option>New Material Suggestion</option>
@@ -106,6 +100,13 @@ function ContactUs() {
               ""
             )}
           </form>
+        </div>
+        <div className={styles.header}>
+          <button className={styles.button1}>
+            <Link className={styles.link} to="/mainpage">
+              <h3>Go Back</h3>
+            </Link>
+          </button>
         </div>
       </div>
     </>

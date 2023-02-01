@@ -16,9 +16,10 @@ textarea{
 .container2 {
     background-color: lightslategray;
     display: flex;
-    flex-direction: column;
-    gap:1rem;
-    margin-top:5rem;
+    flex-direction: row;
+    justify-content: center;
+    gap:2rem;
+    margin-top:2rem;
     text-shadow: 1px 1px 2px black;
 
 }
@@ -26,7 +27,16 @@ textarea{
 .flex{    
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-self: center;
+    gap: 0.2rem;
+}
+
+.flex1{    
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 0.2rem;
+    margin-top: 2rem;
 }
 
 .checkbox1{
@@ -42,55 +52,22 @@ textarea{
     align-self: center;
         background-color:lightslategray;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 1rem;
         font-size: 20px;
-        text-align: left;    
-        justify-content: center;    
+        text-align: left;        
       
     }
 
     .container0 {
         color: white;
-        height: 65rem;
+        height: 55rem;
             }
 
 
 
-        select{
-            width:10rem;
-            height: 2rem;
-            
-            margin-left: 0rem;
-           
-        }  
-
-        .select{
-
-                width:10rem;
-                height: 2rem;
-                margin-top: 0px;
-                margin-left: 0rem;
-                
-
     
-        }
 
-        .header{
-            display: flex;
-            justify-content: center;
-        }
-        .button1 {
-            width: 10rem;
-        align-self: left;
-        border-radius: 3rem;
-            font-size:0.7rem;
-height:3rem;
-margin-top: 5rem;
-
-
-        
-        }
 
         .button2 {
             width: 10rem;
@@ -101,6 +78,9 @@ height:3rem;
 margin-top: 2rem;
         
         }
+        
+        
+
 
 
   
@@ -117,6 +97,22 @@ margin-top: 2rem;
 
         .warning{
             align-self: center;
-            margin-top: 10rem;
-            margin-bottom: 2rem;
+            margin-top: 15rem;
+        }
+
+
+        .header{
+            display: flex;
+            justify-content: center;
+        }
+        .button1 {
+            width: 10rem;
+        align-self: left;
+        border-radius: 3rem;
+            font-size:0.7rem;
+height:3rem;
+margin-top: 5rem;
+
+
+        
         }

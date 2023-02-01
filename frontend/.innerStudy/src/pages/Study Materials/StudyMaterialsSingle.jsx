@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import styles from "../Study Materials/StudySingle.module.css";
 
 function StudyMaterialsSingle() {
   const [topic, setTopic] = useState("");
@@ -19,9 +20,19 @@ function StudyMaterialsSingle() {
 
   return (
     <>
-      <Link to="/studymaterials">Go Back</Link>
-      <div>{topic}</div>
-      <div>{content}</div>
+      <div className={styles.container1}>
+        <div className={styles.mainc}>
+          <div className={styles.secc}>{topic}</div>
+          <div className={styles.tcc}>{content}</div>
+        </div>
+        <div className={styles.header}>
+          <button className={styles.button1}>
+            <Link className={styles.link} to="/studymaterials">
+              <h3>Go Back</h3>
+            </Link>
+          </button>
+        </div>
+      </div>
     </>
   );
 }

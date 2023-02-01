@@ -36,7 +36,7 @@ height: 5rem;
 .flex{    
     display: flex;
     flex-direction: column;
-    align-self: center;
+    justify-content: center;
 }
 input{
     height: 3rem;
