@@ -12,6 +12,13 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    if (authToken != null || window == null) return;
+
+    const authTokenFromLocalStorage = window.localStorage.getItem("auth_token");
+    if (authTokenFromLocalStorage != null) {
+      setAuthToken(authTokenFromLocalStorage);
+      return;
+    }
 
     axios
       .post("http://localhost:5005/api/login", {
@@ -22,19 +29,16 @@ function Login() {
       .then((res) => {
         const token = res.data.token;
         if (token == null) {
-          console.error("No authentication token", res.data.error);
-
           return;
-        } else {
-          navigate("/mainpage");
-          setAuthToken(token);
-          window.localStorage.setItem("auth_token", token);
-          console.log(token);
-          console.log(localStorage);
         }
+
+        setAuthToken(token);
+        navigate("/mainpage");
+
+        window.localStorage.setItem("auth_token", token);
       })
       .catch((error) => {
-        if (error.response.status === 422) {
+        if (error.response.status === 422 || error.response.status === 401) {
           setErrors(
             <div>
               The email or password is incorrect. Try again or create a new

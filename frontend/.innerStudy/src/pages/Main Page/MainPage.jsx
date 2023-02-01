@@ -1,3 +1,4 @@
+import jwt_decode from "jwt-decode";
 import { useState, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import TokenContext from "../../contexts/authtoken";
@@ -6,7 +7,7 @@ function MainPage() {
   const { authToken, setAuthToken } = useContext(TokenContext);
 
   const logoutHandler = () => {
-    setAuthToken(undefined);
+    setAuthToken();
     localStorage.clear();
   };
 
@@ -19,7 +20,7 @@ function MainPage() {
         <Link to="/studymaterials">Study Materials</Link>
       </button>
       <button>
-        <Link to="/myprofile">My Profile</Link>
+        <Link to={`/myprofile/${jwt_decode(authToken).sub}`}>My Profile</Link>
       </button>
       <button>
         <Link to="/contactus">Contact Us</Link>
