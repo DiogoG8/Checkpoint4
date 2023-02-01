@@ -15,7 +15,6 @@ function StudyMaterials({ content }) {
           >
             <div>{contentinfo.Type}</div>
           </div>
-          {console.log(content)}
         </>
       ))}
       {content
@@ -28,7 +27,9 @@ function StudyMaterials({ content }) {
               content={contentinfo.content}
               type={contentinfo.Type}
             >
-              <div>{contentinfo.topic}</div>
+              <Link to={`/studymaterials/${contentinfo.id}`}>
+                {contentinfo.topic}
+              </Link>
             </div>
           </>
         ))}
