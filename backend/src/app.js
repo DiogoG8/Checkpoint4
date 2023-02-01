@@ -42,6 +42,9 @@ app.get("/", (req, res) => {
     });
 });
 
+//Login
+app.post("/api/login", validateLogin, userHandlers.verifyEmailandPassword); //DONE
+
 //Users
 app.get("/api/users/:id", userHandlers.getUserInfo); //DONE
 app.put("/api/users/:id", validateUserChanges, userHandlers.updateUserInfo); //DONE
