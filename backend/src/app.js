@@ -43,16 +43,16 @@ app.get("/", (req, res) => {
 });
 
 //Login
-app.post("/api/login", validateLogin, userHandlers.verifyEmailandPassword); //DONE
+app.post("/api/login", validateLogin, userHandlers.verifyEmailandPassword); //TESTED
 
 //Users
-app.get("/api/users/:id", userHandlers.getUserInfo); //DONE
-app.put("/api/users/:id", validateUserChanges, userHandlers.updateUserInfo); //DONE
-app.post("/api/users", userHandlers.postNewUser); // DONE
+app.get("/api/users/:id", userHandlers.getUserInfo); //TESTED
+app.put("/api/users/:id", validateUserChanges, userHandlers.updateUserInfo); //TESTED
+app.post("/api/users", validateUserRegister, userHandlers.postNewUser); // TESTED
 
 //Content
-app.get("/api/content/:id", contentHandlers.getContentByUser); //DONE
-app.get("/api/content", contentHandlers.getContent); //DONE
+app.get("/api/content/:id", contentHandlers.getContentByUser); //TESTED
+app.get("/api/content", contentHandlers.getContent); //TESTED
 
 //Contact
-app.post("/api/contact", validateContactForm, contactHandlers.postMessage); //DONE
+app.post("/api/contact", validateContactForm, contactHandlers.postMessage); //TESTED
