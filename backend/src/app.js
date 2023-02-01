@@ -11,6 +11,7 @@ app.use(express.json());
 const userHandlers = require("./users/userHandlers");
 const contentHandlers = require("./content/contentHandlers");
 const contactHandlers = require("./contact/contactHandlers");
+const { validateContactForm } = require("./contact/contactValidators");
 const {
   validateUserRegister,
   validateUserChanges,
@@ -51,4 +52,4 @@ app.get("/api/content/:id", contentHandlers.getContentByUser); //DONE
 app.get("/api/content", contentHandlers.getContent); //DONE
 
 //Contact
-app.post("/api/contact", contactHandlers.postMessage); //DONE
+app.post("/api/contact", validateContactForm, contactHandlers.postMessage); //DONE
