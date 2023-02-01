@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import MainPage from "./pages/Main Page/MainPage";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
@@ -12,7 +13,16 @@ import { Link, Route, Router, Routes } from "react-router-dom";
 
 function App() {
   const [authToken, setAuthToken] = useState();
+  useEffect(() => {
+    if (authToken != null || window == null) return;
 
+    const localAuthToken = window.localStorage.getItem("auth_token");
+
+    if (localAuthToken != null) {
+      setAuthToken(localAuthToken);
+      return;
+    }
+  }, [authToken]);
   return (
     <>
       <TokenContext.Provider
