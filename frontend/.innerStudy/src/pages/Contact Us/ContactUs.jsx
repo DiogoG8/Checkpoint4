@@ -27,8 +27,8 @@ function ContactUs() {
       <div className={styles.container0}>
         <div className={styles.container1}>
           <form className={styles.container2}>
-            <div className={styles.warning}>📪 Send Us your message!</div>
-            <div>
+            <div className={styles.warning}>📪 Send us your message!</div>
+            <div className={styles.selectmain}>
               <div className={styles.select}>Topic</div>
               <select>
                 <option>Log In Problems</option>
@@ -86,7 +86,7 @@ function ContactUs() {
                 className={styles.button2}
                 onClick={handleSubmit}
               >
-                <h3>Send your message!</h3>
+                <h3>Send your Message!</h3>
               </button>
             )}
             {formsubmit === true ? (

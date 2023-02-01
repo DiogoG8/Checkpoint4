@@ -100,7 +100,7 @@ function Register() {
                     />
                   </label>
                   <div class="checkmark"></div>
-                  Do you want to receive info about our newsletter?
+                  Do you want to receive our weekly newsletter?
                 </div>
               </div>
               {name.length < 3 ||

@@ -16,8 +16,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 320px;
-  min-height: 100vh;
   background-color:lightslategray;
   font-family: 'Work Sans', sans-serif;
   margin: 0 auto;

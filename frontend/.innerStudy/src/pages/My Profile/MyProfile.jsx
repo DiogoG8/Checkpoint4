@@ -41,7 +41,7 @@ function MyProfile() {
             <div>
               <div className={styles.flex}>
                 <label htmlFor="name">Change Name</label>
-                <textarea
+                <input
                   onChange={(e) => setName(e.target.value)}
                   id="name"
                   name="name"
