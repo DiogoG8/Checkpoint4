@@ -10,6 +10,7 @@ app.use(express.json());
 
 const userHandlers = require("./users/userHandlers");
 const contentHandlers = require("./content/contentHandlers");
+const contactHandlers = require("./contact/contactHandlers");
 const {
   validateUserRegister,
   validateUserChanges,
@@ -48,3 +49,6 @@ app.post("/api/users", userHandlers.postNewUser); // DONE
 //Content
 app.get("/api/content/:id", contentHandlers.getContentByUser); //DONE
 app.get("/api/content", contentHandlers.getContent); //DONE
+
+//Contact
+app.post("/api/contact", contactHandlers.postMessage); //DONE
