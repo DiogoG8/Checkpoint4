@@ -1,7 +1,8 @@
 
-.testt3{
-    color: red;
+h1{
+    color: white;
     text-align: center;
+    font-size: 3.2em;
 }
 
 
@@ -108,17 +109,17 @@ margin-top: -8.5rem;
 
 .tcc{
 
-    padding: 25px 50px 50px 50px;
-    text-align: justify;
+    padding: 25px 100px 50px 100px;
+
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2rem;
 }
 
 .container1{
     background: url("../../assets/images/js2.jpg") no-repeat;
     background-size: 100% 200%;
-    height: 50rem;
+    height: 70rem;
    
 }
 
@@ -152,7 +153,22 @@ margin-top: -8.5rem;
 
 
 @media only screen and (min-width: 320px) and (max-width:360px) {
+    h1{
+        padding-top:1rem;
+        margin-top:0rem;
+        font-size: 1.7rem;
+    }
     
+    h2{
+        font-size: 1.2rem;
+        /* text-align: center; */
+        margin-bottom: 1rem;
+       
+    }
+    p{
+        font-size: 12px;
+       
+    }
     .title{
         font-size: 2.5rem;
         text-shadow: 1px 1px 2px black;
@@ -170,11 +186,8 @@ margin-top: -8.5rem;
     }
 
     .mainc{
-        margin-top: 5rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
-        
+        margin-top: 0rem;
+
         
         
     }
@@ -192,8 +205,8 @@ margin-top: -8.5rem;
     
     .tcc{
     
-        padding: 0px 20px 20px 20px;
-        text-align: justify;
+        padding: 0px 40px 20px 40px;
+
         font-size: 0.7rem;
         font-weight: 800;
         color: white;
@@ -201,9 +214,8 @@ margin-top: -8.5rem;
     }
 
     .container1{
-        margin-left: 40px;
-        margin-right: 40px;
-        height: 33.5rem;
+
+        height: 73.5rem;
     }
     .test{
         display: flex;
@@ -215,10 +227,7 @@ margin-top: -8.5rem;
     }
     .mainc1{
         margin-top: 2rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
-        
+
         
         
     }
@@ -232,6 +241,21 @@ margin-top: -8.5rem;
 
 @media only screen and (min-width: 360px) and (max-width:426px) {
     
+
+    h1{
+        padding-top:1rem;
+        margin-top:0rem;
+        font-size: 1.7rem;
+    }
+    
+    h2{
+        font-size: 1.2rem;
+        /* text-align: center; */
+        margin-bottom: 1rem;
+    }
+    p{
+        font-size: 12px;
+    }
     .title{
         font-size: 2.5rem;
         text-shadow: 1px 1px 2px black;
@@ -245,10 +269,8 @@ margin-top: -8.5rem;
     }
 
     .mainc{
-        margin-top: 5rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
+        margin-top: 0rem;
+
         
         
         
@@ -267,8 +289,7 @@ margin-top: -8.5rem;
     
     .tcc{
     
-        padding: 0px 20px 20px 20px;
-        text-align: justify;
+        padding:0px 50px 20px 50px;
         font-size: 0.7rem;
         font-weight: 800;
         color: white;
@@ -276,9 +297,7 @@ margin-top: -8.5rem;
     }
 
     .container1{
-        margin-left: 40px;
-        margin-right: 40px;
-        height: 33.5rem;
+        height: 68.5rem;
     }
     .test{
         display: flex;
@@ -290,9 +309,6 @@ margin-top: -8.5rem;
     }
     .mainc1{
         margin-top: 2rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
         
         
         

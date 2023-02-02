@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../Study Materials/StudySingle.module.css";
 import Footer from "../../components/footer";
+import DOMPurify from "dompurify";
 
 function StudyMaterialsSingle() {
   const [topic, setTopic] = useState("");
@@ -14,8 +15,10 @@ function StudyMaterialsSingle() {
       .get(`http://localhost:5005/api/content/${id}`)
       .then((response) => response.data)
       .then((data) => {
-        setContent(data.content);
-        setTopic(data.topic);
+        const cleancontent = DOMPurify.sanitize(data.content);
+        const cleantopic = DOMPurify.sanitize(data.topic);
+        setTopic(cleantopic);
+        setContent(cleancontent);
       });
   }, []);
 
@@ -28,7 +31,6 @@ function StudyMaterialsSingle() {
       <div className={styles.h_line}></div>
       <div className={styles.container1}>
         <div className={styles.mainc}>
-          <div className={styles.secc}>{topic}</div>
           <div
             className={styles.tcc}
             dangerouslySetInnerHTML={{ __html: content }}
