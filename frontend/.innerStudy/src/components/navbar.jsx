@@ -31,10 +31,7 @@ function Navbar() {
         </li>
         <li className={styles.list1}>
           <button className={styles.button}>
-            <Link
-              className={styles.link}
-              to={`/myprofile/${jwt_decode(authToken).sub}`}
-            >
+            <Link className={styles.link} to="/contactus">
               My Profile
             </Link>
           </button>
@@ -60,3 +57,6 @@ function Navbar() {
 }
 
 export default Navbar;
+{
+  /*to={`/myprofile/${jwt_decode(authToken).sub}`}*/
+}

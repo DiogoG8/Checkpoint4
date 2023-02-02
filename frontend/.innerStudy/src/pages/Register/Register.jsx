@@ -6,7 +6,6 @@ import styles from "../Register/Register.module.css";
 
 function Register() {
   const emailRegex = /[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,3}/;
-  const [formsubmit, setFormsubmit] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

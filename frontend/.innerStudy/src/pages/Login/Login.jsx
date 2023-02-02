@@ -12,15 +12,16 @@ function Login() {
   const [error, setErrors] = useState("");
 
   function handleSubmit(event) {
-    event.preventDefault();
+    console.log("hey");
     if (authToken != null || window == null) return;
 
     const authTokenFromLocalStorage = window.localStorage.getItem("auth_token");
+    console.log("hey2");
     if (authTokenFromLocalStorage != null) {
       setAuthToken(authTokenFromLocalStorage);
       return;
     }
-
+    console.log("hey3");
     axios
       .post("http://localhost:5005/api/login", {
         email,
@@ -30,13 +31,12 @@ function Login() {
       .then((res) => {
         const token = res.data.token;
         if (token == null) {
+          console.error("token is null");
           return;
         }
-
+        window.localStorage.setItem("auth_token", token);
         setAuthToken(token);
         navigate("/mainpage");
-
-        window.localStorage.setItem("auth_token", token);
       })
       .catch((error) => {
         if (error.response.status === 422 || error.response.status === 401) {
@@ -55,7 +55,7 @@ function Login() {
       <div className={styles.title}>
         .innerStudy
         <div className={styles.container1}>
-          <form className={styles.container2}>
+          <form className={styles.container2} onSubmit={handleSubmit}>
             <div className={styles.flex}>
               <label htmlFor="email">Email</label>
               <input
@@ -77,10 +77,9 @@ function Login() {
               />
             </div>
           </form>
-          <button className={styles.button} onClick={handleSubmit}>
+          <button className={styles.button} type="submit">
             <span>Sign In</span>
           </button>
-          {error}
 
           <Link className={styles.link} to="/register">
             Not a member? Sign Up Now!

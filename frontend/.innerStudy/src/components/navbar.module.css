@@ -23,7 +23,6 @@
 
 .h_line {
   
-    margin: 10px;
     height: 1px;
     border: none;
     background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
@@ -71,7 +70,7 @@
         flex-wrap: wrap;
         margin-left: 5px;
         margin-right: 5px;
-        padding-top: 2rem;
+        padding-top: 0rem;
         flex-direction: row;
     }
 }
@@ -107,7 +106,7 @@
     margin-right: 150px;
         padding-left: 0rem;
         justify-content: space-evenly;
-        padding-top: 2rem;
+        padding-top: 0rem;
     }
 
 

@@ -20,17 +20,6 @@ function App() {
   const [content, setContent] = useState([]);
 
   useEffect(() => {
-    if (authToken != null || window == null) return;
-
-    const localAuthToken = window.localStorage.getItem("auth_token");
-
-    if (localAuthToken != null) {
-      setAuthToken(localAuthToken);
-      return;
-    }
-  }, [authToken]);
-
-  useEffect(() => {
     axios
       .get(`http://localhost:5005/api/content`)
       .then((response) => response.data)
@@ -44,11 +33,11 @@ function App() {
       >
         <IdContext.Provider value={{ id: id, setId: setId }}>
           <Routes>
-            <Route path="*" element={<Login />} />
+            {/*Route path="/" element={<Login />} />*/}
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/register" element={<Register />} />
             <Route path="/mainpage" element={<MainPage />} />
-            <Route path="/myprofile/:id" element={<MyProfile />} />
+            {/*<Route path="/myprofile/:id" element={<MyProfile />} />*/}
             <Route
               path="/studymaterials"
               element={<StudyMaterials content={content} />}
