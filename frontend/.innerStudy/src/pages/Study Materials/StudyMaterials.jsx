@@ -23,7 +23,7 @@ function StudyMaterials({ content }) {
               >
                 <div className={styles.fleximage}>
                   <div>{contentinfo.Type}</div>
-                  <a href="https://www.javascript.com">
+                  <a className={styles.alink} href="https://www.javascript.com">
                     <img
                       src="src/assets/images/javascript-1.svg"
                       alt="test"
@@ -73,7 +73,7 @@ function StudyMaterials({ content }) {
               >
                 <div className={styles.fleximage}>
                   <div>{contentinfo.Type}</div>
-                  <a href="https://reactjs.org/">
+                  <a className={styles.alink} href="https://reactjs.org/">
                     <img
                       src="src/assets/images/React-icon.svg.png"
                       alt="test"

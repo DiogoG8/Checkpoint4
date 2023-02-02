@@ -29,14 +29,26 @@ function StudyMaterialsSingle() {
         🪄 Today you will learn about {topic}!
       </div>
       <div className={styles.h_line}></div>
-      <div className={styles.container1}>
-        <div className={styles.mainc}>
-          <div
-            className={styles.tcc}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
+      {content.includes("React") ? (
+        <div className={styles.container1}>
+          <div className={styles.mainc}>
+            <div
+              className={styles.tcc}
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className={styles.container11}>
+          <div className={styles.mainc}>
+            <div
+              className={styles.tcc}
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </div>
+        </div>
+      )}
+
       <div className={styles.header}>
         <button className={styles.button1}>
           <Link className={styles.link} to="/studymaterials">
