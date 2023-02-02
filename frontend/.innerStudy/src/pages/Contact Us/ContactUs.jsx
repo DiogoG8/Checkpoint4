@@ -66,7 +66,7 @@ function ContactUs() {
             </div>
             {topic.length > 5 && issue.length > 10 ? (
               <button className={styles.button2} onClick={handleSubmit}>
-                <span>Send your message!</span>
+                <span>Send Message!</span>
               </button>
             ) : topic.length > 5 && issue.length <= 10 ? (
               <button
@@ -74,7 +74,7 @@ function ContactUs() {
                 className={styles.button3}
                 onClick={handleSubmit}
               >
-                <span>Send your message!</span>
+                <span>Send Message!</span>
               </button>
             ) : topic.length <= 5 && issue.length > 10 ? (
               <button
@@ -82,7 +82,7 @@ function ContactUs() {
                 className={styles.button3}
                 onClick={handleSubmit}
               >
-                <span>Send your message!</span>
+                <span>Send Message!</span>
               </button>
             ) : (
               <button
@@ -90,7 +90,7 @@ function ContactUs() {
                 className={styles.button3}
                 onClick={handleSubmit}
               >
-                <span>Send your message!</span>
+                <span>Send Message!</span>
               </button>
             )}
             {formsubmit === true ? (

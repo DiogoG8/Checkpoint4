@@ -79,7 +79,7 @@ textarea{
 
 
             .button2 {
-                width: 10rem;
+                width: 11rem;
                 align-self: center;
       border-radius: 3rem;
                 font-size:0.7rem;
@@ -143,7 +143,7 @@ textarea{
     
         
     .button3{
-        width: 10rem;
+        width: 11rem;
         align-self: center;
 border-radius: 3rem;
         font-size:0.7rem;
@@ -196,7 +196,7 @@ font-size: 1rem;
             justify-content: center;
         }
         .button1 {
-            width: 10rem;
+            width: 11rem;
         align-self: left;
         border-radius: 3rem;
         border: 1.5px solid #302518;
@@ -340,5 +340,28 @@ margin-top: 1rem;
         .selectmain{
             margin-right: 6rem;
         }
+
+
+        .button1 {
+           
+            font-size:0.8rem;
+            width: 9rem;
+}
+
+.button2 {
+
+    font-size:0.8rem;
+    width: 9rem;
+
+
+}
+
+.button3 {
+
+    font-size:0.8rem;
+    width: 9rem;
+
+
+}
 
                 }

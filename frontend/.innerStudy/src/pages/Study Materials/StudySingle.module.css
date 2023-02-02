@@ -4,22 +4,72 @@
     text-decoration: none;
     margin-bottom: 0rem;
     margin-top: 5rem;
-    color: white;
-    text-shadow: 1px 1px 2px black;
+    color: black;
 }
 .header{
     display: flex;
     justify-content: center;
 }
 .button1 {
-    width: 10rem;
+    width: 11rem;
 align-self: left;
 border-radius: 3rem;
+border: 1.5px solid #302518;
     font-size:0.7rem;
 height:3rem;
-margin-top: 7rem;
-
-}
+margin-top: 5rem;
+    outline: none;
+    cursor: pointer;
+    
+    padding: 0.9rem 2rem;
+    
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    overflow: hidden;
+    background: #302518;
+    color: white;
+    font-size: 1rem;
+   }
+   
+   .button1 span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+   .button1:hover span {
+    color: white;
+    font-weight: bolder;
+   }
+   
+   .button1::before,
+   .button1::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+   .button1::before {
+    content: "";
+    background: white;
+    font-weight: bolder;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+   }
+   
+   .button1:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
 
 
 .mainc{
@@ -149,65 +199,11 @@ margin-top: 7rem;
         
     }
     .button1 {
-        width: 10rem;
-    align-self: left;
-    border-radius: 3rem;
-    border: 1.5px solid #302518;
-        font-size:0.7rem;
-height:3rem;
-margin-top: 5rem;
-        outline: none;
-        cursor: pointer;
-        
-        padding: 0.9rem 2rem;
-        
-        font-family: inherit;
-        font-size: inherit;
-        position: relative;
-        display: inline-block;
-        letter-spacing: 0.05rem;
-        font-weight: 700;
-        font-size: 17px;
-        overflow: hidden;
-        background: #302518;
-        color: white;
-        font-size: 1rem;
-       }
-       
-       .button1 span {
-        position: relative;
-        z-index: 10;
-        transition: color 0.4s;
-       }
-       
-       .button1:hover span {
-        color: white;
-        font-weight: bolder;
-       }
-       
-       .button1::before,
-       .button1::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-       }
-       
-       .button1::before {
-        content: "";
-        background: white;
-        font-weight: bolder;
-        width: 120%;
-        left: -10%;
-        transform: skew(30deg);
-        transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-       }
-       
-       .button1:hover::before {
-        transform: translate3d(100%, 0, 0);
-       }
+           
+        font-size:0.8rem;
+        width: 9rem;
+}
+
 }
 
 @media only screen and (min-width: 360px) and (max-width:426px) {
@@ -278,12 +274,9 @@ margin-top: 5rem;
         
     }
     .button1 {
-        width: 10rem;
-    align-self: left;
-    border-radius: 3rem;
-        font-size:0.7rem;
-    height:3rem;
-    margin-top: 5rem;
-    
-    }
+           
+        font-size:0.8rem;
+        width: 9rem;
+}
+
 }

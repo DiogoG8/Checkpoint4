@@ -92,7 +92,7 @@ textarea{
             justify-content: center;
         }
         .button1 {
-            width: 10rem;
+            width: 11rem;
         align-self: left;
         border-radius: 3rem;
         border: 1.5px solid #302518;
@@ -154,7 +154,7 @@ margin-top: 5rem;
            
 
         .button2 {
-            width: 10rem;
+            width: 11rem;
             align-self: center;
   border-radius: 3rem;
             font-size:0.7rem;
@@ -165,7 +165,7 @@ margin-top: 2rem;
 outline: none;
 cursor: pointer;
 
-padding: 0rem;
+padding: 0px 10px 0 10px;
 
 font-family: inherit;
 font-size: inherit;
@@ -218,7 +218,7 @@ transform: translate3d(100%, 0, 0);
 
 
 .button3 {
-    width: 10rem;
+    width:11rem;
     align-self: center;
 border-radius: 3rem;
     font-size:0.7rem;
@@ -229,7 +229,7 @@ margin-top: 2rem;
 outline: none;
 cursor: pointer;
 
-padding: 0rem;
+padding: 0px 10px 0 10px;
 
 font-family: inherit;
 font-size: inherit;
@@ -316,31 +316,30 @@ font-size: 1rem;
                         margin-bottom: 3rem;
                     }
 
+
                     .button1 {
-                        width: 10rem;
-                    align-self: left;
-                    border-radius: 3rem;
-                        font-size:0.7rem;
-            height:3rem;
-            margin-top: 3rem;
-            
-            
-                    
-                    }
+           
+                        font-size:0.8rem;
+                        width: 9rem;
+                        margin-top: 3rem;
+}
+
+            .button2 {
+     
+                font-size:0.8rem;
+                width: 9rem;
 
 
-                    
-        .button2 {
-            width: 10rem;
-            align-self: center;
-  border-radius: 3rem;
-            font-size:0.7rem;
-height:3rem;
-margin-top: 2rem;
-        
-        }
-        .selectmain{
-            margin-right: 6rem;
-        }
+            }
 
+            .button3 {
+     
+                font-size:0.8rem;
+                width: 9rem;
+
+
+            }
                 }
+
+
+                    

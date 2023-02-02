@@ -33,11 +33,11 @@ function App() {
       >
         <IdContext.Provider value={{ id: id, setId: setId }}>
           <Routes>
-            {/*Route path="/" element={<Login />} />*/}
+            <Route path="/" element={<Login />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/register" element={<Register />} />
             <Route path="/mainpage" element={<MainPage />} />
-            {/*<Route path="/myprofile/:id" element={<MyProfile />} />*/}
+            <Route path="/myprofile/:id" element={<MyProfile />} />
             <Route
               path="/studymaterials"
               element={<StudyMaterials content={content} />}

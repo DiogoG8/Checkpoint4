@@ -31,7 +31,10 @@ function Navbar() {
         </li>
         <li className={styles.list1}>
           <button className={styles.button}>
-            <Link className={styles.link} to="/contactus">
+            <Link
+              className={styles.link}
+              to={`/myprofile/${jwt_decode(authToken).sub}`}
+            >
               My Profile
             </Link>
           </button>
@@ -45,7 +48,7 @@ function Navbar() {
         </li>
         <li className={styles.list1}>
           <button className={styles.button} onClick={logoutHandler}>
-            <Link className={styles.link} to="*">
+            <Link className={styles.link} to="/">
               Log Out
             </Link>
           </button>

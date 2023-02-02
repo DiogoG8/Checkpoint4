@@ -5,6 +5,7 @@
     padding-left: 0rem;
     justify-content: space-evenly;
     padding-top: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .list1{
@@ -72,6 +73,7 @@
         margin-right: 5px;
         padding-top: 0rem;
         flex-direction: row;
+        margin-bottom: 1rem;
     }
 }
 
@@ -107,6 +109,7 @@
         padding-left: 0rem;
         justify-content: space-evenly;
         padding-top: 0rem;
+        margin-bottom: 1rem;
     }
 
 

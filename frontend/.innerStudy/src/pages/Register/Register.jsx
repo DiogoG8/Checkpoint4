@@ -112,7 +112,7 @@ function Register() {
                     disabled="disabled"
                     onClick={handleSubmit}
                   >
-                    <span>Create an Account</span>
+                    <span>Create Account</span>
                   </button>
                   <ul className={styles.list}>
                     <li>* Your user name needs to be over two digits;</li>
@@ -122,18 +122,18 @@ function Register() {
                     </li>
                     <li>* Your password needs to be more than ten digits;</li>
                     <li>
-                      * You have to agree with the terms of service, duh! 🌝{" "}
+                      * You have to agree with the terms of service, duh! 🌝
                     </li>
                   </ul>
                 </>
               ) : (
                 <button className={styles.button} onClick={handleSubmit}>
-                  <Link className={styles.link} to="/login">
-                    <span>Create an Account</span>
+                  <Link className={styles.link} to="/">
+                    <span>Create Account</span>
                   </Link>
                 </button>
               )}
-              <Link className={styles.link2} to="/login">
+              <Link className={styles.link2} to="/">
                 Oh, you are a registered user? Just log in!
               </Link>
             </form>

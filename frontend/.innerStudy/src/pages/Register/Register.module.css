@@ -57,13 +57,13 @@
     }
     
     .button {
-        width: 10rem;
+        width: 11rem;
         align-self: center;
         border-radius: 3rem;
         font-size:0.7rem;
         border: 1.5px solid #302518;  
         height:3rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
                 
         outline: none;
         cursor: pointer;
@@ -122,7 +122,7 @@
 
 
         .button2 {
-            width: 10rem;
+            width: 11rem;
             align-self: center;
             border-radius: 3rem;
             font-size:0.7rem;
@@ -182,7 +182,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         font-size:15px;
     }
   
@@ -248,7 +248,7 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
-                    margin-bottom: 2rem;
+                    margin-bottom: 1rem;
                     font-size:12px;
                 }
 
@@ -261,4 +261,23 @@
         margin-bottom: 0rem;
         margin-top: 2rem;
     }
+
+    .button {
+           
+        font-size:0.8rem;
+        width: 9rem;
+        margin-top: 0rem;
+}
+
+.button2 {
+           
+    font-size:0.8rem;
+    width: 9rem;
+    margin-top: 0rem;
+}
+
+
+
+
+
             }

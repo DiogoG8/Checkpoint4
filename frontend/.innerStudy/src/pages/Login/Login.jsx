@@ -55,7 +55,7 @@ function Login() {
       <div className={styles.title}>
         .innerStudy
         <div className={styles.container1}>
-          <form className={styles.container2} onSubmit={handleSubmit}>
+          <form className={styles.container2}>
             <div className={styles.flex}>
               <label htmlFor="email">Email</label>
               <input
@@ -77,7 +77,7 @@ function Login() {
               />
             </div>
           </form>
-          <button className={styles.button} type="submit">
+          <button onClick={handleSubmit} className={styles.button}>
             <span>Sign In</span>
           </button>
 
