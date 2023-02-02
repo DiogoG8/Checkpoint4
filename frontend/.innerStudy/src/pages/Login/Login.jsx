@@ -41,9 +41,8 @@ function Login() {
       .catch((error) => {
         if (error.response.status === 422 || error.response.status === 401) {
           setErrors(
-            <div>
-              The email or password is incorrect. Try again or create a new
-              account!
+            <div className={styles.linkstyle}>
+              <div>The email or password is incorrect. </div>
             </div>
           );
         }
@@ -80,7 +79,7 @@ function Login() {
           <button onClick={handleSubmit} className={styles.button}>
             <span>Sign In</span>
           </button>
-
+          {error}
           <Link className={styles.link} to="/register">
             Not a member? Sign Up Now!
           </Link>

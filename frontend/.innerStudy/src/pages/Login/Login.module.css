@@ -124,6 +124,12 @@ input{
     text-decoration: none;
 }
 
+.linkstyle{
+    align-self: center;
+    text-shadow: none;
+    color: white;
+    text-decoration: none;
+}
 .flex3 {
     gap:1rem;
     margin-top: 2rem;
@@ -145,6 +151,14 @@ input{
     text-align: center;
 }
 
+
+.linkstyle{
+    align-self: center;
+    text-shadow: none;
+    color: white;
+    text-decoration: none;
+
+}
 
 .container1 {
     align-self: center;
