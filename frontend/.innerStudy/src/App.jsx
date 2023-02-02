@@ -18,12 +18,21 @@ function App() {
   const [authToken, setAuthToken] = useState();
   const [id, setId] = useState();
   const [content, setContent] = useState([]);
+  const [counter, setCounter] = useState([]);
 
   useEffect(() => {
     axios
       .get(`http://localhost:5005/api/content`)
       .then((response) => response.data)
       .then((data) => setContent(data));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5005/api/counter`)
+      .then((response) => response.data)
+      .then((data) => console.log(data))
+      .then((data) => setCounter(data));
   }, []);
 
   return (
@@ -40,7 +49,7 @@ function App() {
             <Route path="/myprofile/:id" element={<MyProfile />} />
             <Route
               path="/studymaterials"
-              element={<StudyMaterials content={content} />}
+              element={<StudyMaterials content={content} counter={counter} />}
             />
             <Route
               path="/studymaterials/:id"

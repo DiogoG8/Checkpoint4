@@ -29,7 +29,22 @@ const getContentByUser = (req, res) => {
     });
 };
 
+const dataError = "Error retrieving data from database";
+
+const offersCounter = (req, res) => {
+  database
+    .query("SELECT COUNT (Type) FROM content GROUP BY Type")
+    .then((result) => {
+      res.status(200).json(result[0]);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send(dataError);
+    });
+};
+
 module.exports = {
   getContent,
   getContentByUser,
+  offersCounter,
 };

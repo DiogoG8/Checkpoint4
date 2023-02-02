@@ -53,6 +53,7 @@ app.post("/api/users", validateUserRegister, userHandlers.postNewUser); // TESTE
 //Content
 app.get("/api/content/:id", contentHandlers.getContentByUser); //TESTED
 app.get("/api/content", contentHandlers.getContent); //TESTED
+app.get("/api/counter", contentHandlers.offersCounter); //TESTED
 
 //Contact
 app.post("/api/contact", validateContactForm, contactHandlers.postMessage); //TESTED

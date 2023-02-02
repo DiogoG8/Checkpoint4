@@ -3,7 +3,7 @@ import styles from "../Study Materials/StudyMaterials.module.css";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 
-function StudyMaterials({ content }) {
+function StudyMaterials({ content, counter }) {
   return (
     <>
       <Navbar />
