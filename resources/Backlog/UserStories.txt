@@ -1,0 +1,8 @@
+The user stories done, were the following:
+
+1- As a user, I want to check information about different methods, hooks and useful functionalities;
+2- As a user, I want to able to post an issue, opinion or a message;
+3- As a user, I want to create an account in the website;
+4- As a user, I want to manage the account created in the website.
+
+To check the more information, go to the project section on the repository! (a picture of the backlog was added here too)
