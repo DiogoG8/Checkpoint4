@@ -78,7 +78,7 @@ function Login() {
             </div>
           </form>
           <button className={styles.button} onClick={handleSubmit}>
-            <h3>Sign In</h3>
+            <span>Sign In</span>
           </button>
           {error}
 

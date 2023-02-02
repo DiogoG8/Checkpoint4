@@ -109,11 +109,11 @@ function Register() {
               tos === false ? (
                 <>
                   <button
-                    className={styles.button}
+                    className={styles.button2}
                     disabled="disabled"
                     onClick={handleSubmit}
                   >
-                    Create an Account
+                    <span>Create an Account</span>
                   </button>
                   <ul className={styles.list}>
                     <li>* Your user name needs to be over two digits;</li>
@@ -130,7 +130,7 @@ function Register() {
               ) : (
                 <button className={styles.button} onClick={handleSubmit}>
                   <Link className={styles.link} to="/login">
-                    <h3>Create an Account</h3>
+                    <span>Create an Account</span>
                   </Link>
                 </button>
               )}

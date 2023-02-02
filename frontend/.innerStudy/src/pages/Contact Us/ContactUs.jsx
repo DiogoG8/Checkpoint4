@@ -66,31 +66,31 @@ function ContactUs() {
             </div>
             {topic.length > 5 && issue.length > 10 ? (
               <button className={styles.button2} onClick={handleSubmit}>
-                <h3>Send your message!</h3>
+                <span>Send your message!</span>
               </button>
             ) : topic.length > 5 && issue.length <= 10 ? (
               <button
                 disabled="disabled"
-                className={styles.button2}
+                className={styles.button3}
                 onClick={handleSubmit}
               >
-                <h3>Send your message!</h3>
+                <span>Send your message!</span>
               </button>
             ) : topic.length <= 5 && issue.length > 10 ? (
               <button
                 disabled="disabled"
-                className={styles.button2}
+                className={styles.button3}
                 onClick={handleSubmit}
               >
-                <h3>Send your message!</h3>
+                <span>Send your message!</span>
               </button>
             ) : (
               <button
                 disabled="disabled"
-                className={styles.button2}
+                className={styles.button3}
                 onClick={handleSubmit}
               >
-                <h3>Send your Message!</h3>
+                <span>Send your message!</span>
               </button>
             )}
             {formsubmit === true ? (
@@ -108,7 +108,7 @@ function ContactUs() {
         <div className={styles.header}>
           <button className={styles.button1}>
             <Link className={styles.link} to="/mainpage">
-              <h3>Go Back</h3>
+              <span>Go Back!</span>
             </Link>
           </button>
         </div>

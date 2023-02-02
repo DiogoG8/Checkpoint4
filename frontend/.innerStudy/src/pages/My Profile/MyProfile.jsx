@@ -66,19 +66,19 @@ function MyProfile() {
             </div>
           </form>
           {name.length < 3 || !emailRegex.test(email) ? (
-            <button className={styles.button2} disabled="disabled">
-              <h3>Save Changes</h3>
+            <button className={styles.button3} disabled="disabled">
+              <span>Save Changes</span>
             </button>
           ) : (
             <button className={styles.button2} onClick={handleSubmit}>
-              <h3>Save Changes</h3>
+              <span>Save Changes</span>
             </button>
           )}
         </div>
         <div className={styles.header}>
           <button className={styles.button1}>
             <Link className={styles.link} to="/mainpage">
-              <h3>Go Back</h3>
+              <span>Go Back!</span>
             </Link>
           </button>
         </div>

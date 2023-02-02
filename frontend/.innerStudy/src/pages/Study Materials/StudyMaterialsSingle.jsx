@@ -33,7 +33,7 @@ function StudyMaterialsSingle() {
         <div className={styles.header}>
           <button className={styles.button1}>
             <Link className={styles.link} to="/studymaterials">
-              <h3>Go Back</h3>
+              <span>Go Back!</span>
             </Link>
           </button>
         </div>
