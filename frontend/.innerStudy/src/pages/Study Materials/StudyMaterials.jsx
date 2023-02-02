@@ -9,6 +9,7 @@ function StudyMaterials({ content }) {
       <Navbar />
       <div className={styles.title}>.innerStudy</div>
       <div className={styles.warning}>📖 Learn about your favorite topics!</div>
+      <div className={styles.h_line1}></div>
       <div className={styles.container1}>
         <div className={styles.mainc}>
           {content.slice(1, 2).map((contentinfo) => (
@@ -20,7 +21,18 @@ function StudyMaterials({ content }) {
                 content={contentinfo.content}
                 type={contentinfo.Type}
               >
-                <div>{contentinfo.Type}</div>
+                <div className={styles.fleximage}>
+                  <div>{contentinfo.Type}</div>
+                  <a href="https://www.javascript.com">
+                    <img
+                      src="src/assets/images/javascript-1.svg"
+                      alt="test"
+                      height="45px"
+                      width="50px"
+                    />
+                  </a>
+                </div>
+                <div></div>
               </div>
             </>
           ))}
@@ -47,6 +59,8 @@ function StudyMaterials({ content }) {
               ))}
           </div>
         </div>
+        <div className={styles.h_line}></div>
+        <div className={styles.h_line2}></div>
         <div className={styles.mainc1}>
           {content.slice(0, 1).map((contentinfo) => (
             <>
@@ -57,7 +71,18 @@ function StudyMaterials({ content }) {
                 content={contentinfo.content}
                 type={contentinfo.Type}
               >
-                <div>{contentinfo.Type}</div>
+                <div className={styles.fleximage}>
+                  <div>{contentinfo.Type}</div>
+                  <a href="https://reactjs.org/">
+                    <img
+                      src="src/assets/images/React-icon.svg.png"
+                      alt="test"
+                      height="45px"
+                      width="50px"
+                    />
+                  </a>
+                </div>
+                <div></div>
               </div>
             </>
           ))}
@@ -82,6 +107,7 @@ function StudyMaterials({ content }) {
               ))}
           </div>
         </div>
+        <div className={styles.h_line}></div>
 
         <div className={styles.header}>
           <button className={styles.button1}>

@@ -12,11 +12,11 @@ function Login() {
   const [error, setErrors] = useState("");
 
   function handleSubmit(event) {
-    console.log("hey");
+    console.log("hey", authToken, window);
     if (authToken != null || window == null) return;
 
     const authTokenFromLocalStorage = window.localStorage.getItem("auth_token");
-    console.log("hey2");
+    console.log("hey2", authTokenFromLocalStorage);
     if (authTokenFromLocalStorage != null) {
       setAuthToken(authTokenFromLocalStorage);
       return;

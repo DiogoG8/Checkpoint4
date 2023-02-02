@@ -1,3 +1,21 @@
+
+.testt3{
+    color: red;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .link {
     align-self: center;
     text-shadow: none;
@@ -17,7 +35,7 @@ border-radius: 3rem;
 border: 1.5px solid #302518;
     font-size:0.7rem;
 height:3rem;
-margin-top: 5rem;
+margin-top: -8.5rem;
     outline: none;
     cursor: pointer;
     
@@ -32,6 +50,7 @@ margin-top: 5rem;
     font-size: 17px;
     overflow: hidden;
     background: #302518;
+    border: 1.5px solid white;
     color: white;
     font-size: 1rem;
    }
@@ -45,6 +64,7 @@ margin-top: 5rem;
    .button1:hover span {
     color: white;
     font-weight: bolder;
+    
    }
    
    .button1::before,
@@ -60,6 +80,7 @@ margin-top: 5rem;
    .button1::before {
     content: "";
     background: white;
+    
     font-weight: bolder;
     width: 120%;
     left: -10%;
@@ -72,14 +93,6 @@ margin-top: 5rem;
    }
 
 
-.mainc{
-    margin-top: 10rem;
-    background: lightcoral;
-    border-radius: 2rem;
-    border: 2px solid black;
-    
-    
-}
 
 .secc{
 
@@ -97,13 +110,15 @@ margin-top: 5rem;
 
     padding: 25px 50px 50px 50px;
     text-align: justify;
-    color: black;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 2rem;
 }
 
 .container1{
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 10rem;
+    background: url("../../assets/images/js2.jpg") no-repeat;
+    background-size: 100% 200%;
+    height: 50rem;
    
 }
 
@@ -126,6 +141,15 @@ margin-top: 5rem;
     text-shadow: 1px 1px 2px black;
     font-size: 20px;
 }
+
+.h_line {
+  
+    height: 1px;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
+    margin-top: 4rem;
+}
+
 
 @media only screen and (min-width: 320px) and (max-width:360px) {
     

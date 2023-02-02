@@ -25,19 +25,24 @@ function StudyMaterialsSingle() {
       <div className={styles.warning}>
         🪄 Today you will learn about {topic}!
       </div>
+      <div className={styles.h_line}></div>
       <div className={styles.container1}>
         <div className={styles.mainc}>
           <div className={styles.secc}>{topic}</div>
-          <div className={styles.tcc}>{content}</div>
-        </div>
-        <div className={styles.header}>
-          <button className={styles.button1}>
-            <Link className={styles.link} to="/studymaterials">
-              <span>Go Back!</span>
-            </Link>
-          </button>
+          <div
+            className={styles.tcc}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </div>
       </div>
+      <div className={styles.header}>
+        <button className={styles.button1}>
+          <Link className={styles.link} to="/studymaterials">
+            <span>Go Back!</span>
+          </Link>
+        </button>
+      </div>
+
       <Footer />
     </>
   );

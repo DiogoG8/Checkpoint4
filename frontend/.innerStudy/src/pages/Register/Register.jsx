@@ -85,7 +85,7 @@ function Register() {
                       onChange={handleTOS}
                     />
                   </label>
-                  <div class="checkmark"></div>
+                  <div className="checkmark"></div>
                   Terms of Service
                 </div>
                 <div className={styles.flex3}>
@@ -98,7 +98,7 @@ function Register() {
                       onChange={handleNewsletter}
                     />
                   </label>
-                  <div class="checkmark"></div>
+                  <div className="checkmark"></div>
                   Do you want to receive our weekly newsletter?
                 </div>
               </div>

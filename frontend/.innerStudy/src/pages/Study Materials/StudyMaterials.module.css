@@ -1,3 +1,43 @@
+.fleximage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+img{
+    margin-left: 1rem;
+}
+
+a{
+    height: 40px;
+  }
+
+.h_line {
+  
+    height: 1px;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
+
+}
+
+
+.h_line1 {
+    margin-top: 4rem;
+    height: 1px;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
+
+}
+
+.h_line2{
+    margin-top: 5rem;
+    height: 1px;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
+
+}
+
+
 .header{
     display: flex;
     justify-content: center;
@@ -74,38 +114,39 @@ margin-top: 5rem;
 
 
 .mainc{
-    margin-top: 10rem;
-    background: rgb(12, 84, 227);
-    border-radius: 2rem;
-    border: 2px solid black;
+
+    background: url("../../assets/images/js.jpg") no-repeat;
+    background-size: 100% 200%;
+
     
     
     
 }
 
 .mainc1{
-    margin-top: 5rem;
-    background: rgb(12, 84, 227);
-    border-radius: 2rem;
-    border: 2px solid black;
+    margin-top: 0rem;
+    background: url("../../assets/images/react.jpg") no-repeat;
+    background-size: 100% 200%;
     
     
 }
 
 .container1{
-    margin-left: 100px;
-    margin-right: 100px;
+
     height: 55rem;
 }
 
 .secc{
 
     padding: 50px 50px 0px 50px;
-    text-align: center;
+    text-align: left;
     font-size: 3rem;
     font-weight: 900;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
+    color: white;
     text-shadow: 1px 1px 2px black;
+    
+    
 }
 
 
@@ -133,7 +174,7 @@ margin-top: 5rem;
     display: flex;
     justify-content: space-around;
     padding-bottom: 25px;
-    font-size:1.5rem;
+    font-size:2rem;
     
 }
 
@@ -157,6 +198,18 @@ margin-top: 5rem;
     font-size: 20px;
 }
 
+
+.image1{
+    background-image: url("../../assets/images/javascript-1.svg") no-repeat;
+    background-size: 100% 100%;
+}
+
+.image2{
+
+    background-image: url("../../assets/images/React-icon.svg.png") no-repeat;
+    background-size: 100% 100%;
+}
+
 @media only screen and (min-width: 320px) and (max-width:360px) {
     
     .title{
@@ -176,10 +229,8 @@ margin-top: 5rem;
     }
 
     .mainc{
-        margin-top: 5rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
+        margin-top: 0rem;
+
         
         
         
@@ -200,14 +251,13 @@ margin-top: 5rem;
     
         padding: 0px 0px 0px 0px;
         text-align: justify;
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         font-weight: 800;
     }
 
     .container1{
-        margin-left: 40px;
-        margin-right: 40px;
-        height: 37rem;
+
+        height: 34rem;
     }
     .test{
         display: flex;
@@ -218,10 +268,7 @@ margin-top: 5rem;
         font-size:1.5rem;
     }
     .mainc1{
-        margin-top: 2rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
+        margin-top: 0rem;
         
         
         
@@ -230,6 +277,7 @@ margin-top: 5rem;
            
         font-size:0.8rem;
         width: 9rem;
+        margin-top: 3rem;
 }
 
 .button2 {
@@ -247,7 +295,34 @@ width: 9rem;
 
 
 }
+
+
+.fleximage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
+img{
+    height: 25px;
+    width: 30px;
+    margin-left: 0.5rem;
+}
+
+a{
+    height: 20px;
+  }
+  .h_line2{
+    margin-top: 2rem;
+    height: 1px;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
+
+}
+
+}
+
+
 
 
 @media only screen and (min-width: 360px) and (max-width:426px) {
@@ -265,10 +340,8 @@ width: 9rem;
     }
 
     .mainc{
-        margin-top: 5rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
+        margin-top: 0rem;
+
         
         
         
@@ -278,7 +351,7 @@ width: 9rem;
 
         padding: 25px 50px 0px 50px;
         text-align: center;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         font-weight: 900;
         margin-bottom: 2rem;
         text-shadow: 1px 1px 2px black;
@@ -289,14 +362,14 @@ width: 9rem;
     
         padding: 0px 0px 0px 0px;
         text-align: justify;
-        font-size: 0.9rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
         font-weight: 800;
     }
 
     .container1{
-        margin-left: 40px;
-        margin-right: 40px;
-        height: 37rem;
+
+        height: 36rem;
     }
     .test{
         display: flex;
@@ -307,10 +380,8 @@ width: 9rem;
         font-size:1.5rem;
     }
     .mainc1{
-        margin-top: 2rem;
-        background: rgb(12, 84, 227);
-        border-radius: 2rem;
-        border: 2px solid black;
+        margin-top: 0rem;
+
         
         
         
@@ -320,6 +391,7 @@ width: 9rem;
            
         font-size:0.8rem;
         width: 9rem;
+        margin-top: 3rem;
 }
 
 .button2 {
@@ -337,4 +409,28 @@ width: 9rem;
 
 
 }
+
+.h_line2{
+    margin-top: 2rem;
+    height: 1px;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
+
+}
+
+.fleximage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    height: 25px;
+    width: 30px;
+    margin-left: 0.5rem;
+}
+
+a{
+    height: 22px;
+  }
 }
