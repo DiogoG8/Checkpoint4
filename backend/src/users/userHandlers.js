@@ -103,7 +103,6 @@ const verifyEmailandPassword = (req, res) => {
           })
           .catch((err) => {
             console.error(err);
-            res.sendStatus(500).send("Error autheticating");
           });
       } else {
         res.sendStatus(401);
