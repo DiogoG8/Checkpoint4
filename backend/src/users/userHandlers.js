@@ -97,6 +97,8 @@ const verifyEmailandPassword = (req, res) => {
 
               delete req.user.hashedPassword;
               res.send({ token, user: req.user });
+            } else {
+              res.sendStatus(500);
             }
           })
           .catch((err) => {
