@@ -15,7 +15,7 @@ function Login() {
     console.log("hey", authToken, window);
     if (authToken != null || window == null) return;
 
-    const authTokenFromLocalStorage = window.localStorage.getItem("auth_token");
+    const authTokenFromLocalStorage = localStorage.getItem("auth_token");
     console.log("hey2", authTokenFromLocalStorage);
     if (authTokenFromLocalStorage != null) {
       setAuthToken(authTokenFromLocalStorage);
@@ -34,7 +34,7 @@ function Login() {
           console.error("token is null");
           return;
         }
-        window.localStorage.setItem("auth_token", token);
+        localStorage.setItem("auth_token", token);
         setAuthToken(token);
         navigate("/mainpage");
       })

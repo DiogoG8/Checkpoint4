@@ -8,8 +8,8 @@ function Navbar() {
   const { authToken, setAuthToken } = useContext(TokenContext);
 
   const logoutHandler = () => {
-    setAuthToken(null);
-    window.localStorage.setItem("auth_token", null);
+    setAuthToken(undefined);
+    window.localStorage.clear();
   };
 
   return (
