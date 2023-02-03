@@ -98,13 +98,13 @@ const verifyEmailandPassword = (req, res) => {
               delete req.user.hashedPassword;
               res.send({ token, user: req.user });
             } else {
+              res.sendStatus(401);
             }
           })
           .catch((err) => {
             console.error(err);
           });
       } else {
-        res.sendStatus(401);
       }
     })
     .catch((err) => {
