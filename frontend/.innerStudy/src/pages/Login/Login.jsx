@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const { authToken, setAuthToken } = useContext(TokenContext);
   const navigate = useNavigate();
-  const [error, setErrors] = useState("");
+  const [errors, setErrors] = useState("");
 
   function handleSubmit(event) {
     console.log("hey", authToken, window);
@@ -38,7 +38,15 @@ function Login() {
         setAuthToken(token);
         navigate("/mainpage");
       })
-      .catch((error) => {});
+      .catch((error) => {
+        if (error.response.status === 422 || error.response.status === 401) {
+          setErrors(
+            <div className={styles.linkstyle}>
+              <div>The email or password is incorrect. </div>
+            </div>
+          );
+        }
+      });
   }
 
   return (
@@ -71,7 +79,7 @@ function Login() {
           <button onClick={handleSubmit} className={styles.button}>
             <span>Sign In</span>
           </button>
-          {error}
+          {errors}
           <Link className={styles.link} to="/register">
             Not a member? Sign Up Now!
           </Link>
