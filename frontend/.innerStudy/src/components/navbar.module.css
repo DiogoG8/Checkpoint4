@@ -7,6 +7,8 @@
     background-color: transparent;
     border: transparent;
     cursor:pointer;
+    width: 15rem;
+  
     
 }
 
@@ -98,6 +100,8 @@
         background-color: transparent;
         border: transparent;
         cursor:pointer;
+        padding-top: 1rem;
+        width: 5rem;
         
     }
 }
@@ -147,6 +151,8 @@
         background-color: transparent;
         border: transparent;
         cursor:pointer;
+        width: 5rem;
+  
         
     }
 
