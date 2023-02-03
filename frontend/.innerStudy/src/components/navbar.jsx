@@ -1,15 +1,17 @@
 import jwt_decode from "jwt-decode";
 import { useState, useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TokenContext from "../contexts/authtoken";
 import styles from "../components/navbar.module.css";
 
 function Navbar() {
   const { authToken, setAuthToken } = useContext(TokenContext);
+  const navigate = useNavigate();
 
   const logoutHandler = () => {
     setAuthToken(undefined);
     window.localStorage.clear();
+    navigate("/");
   };
 
   return (
@@ -47,10 +49,8 @@ function Navbar() {
           </button>
         </li>
         <li className={styles.list1}>
-          <button className={styles.button} onClick={logoutHandler}>
-            <Link className={styles.link} to="/">
-              Log Out
-            </Link>
+          <button className={styles.button5} onClick={logoutHandler}>
+            Log Out
           </button>
         </li>
       </ul>

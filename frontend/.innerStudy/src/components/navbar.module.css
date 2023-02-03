@@ -1,3 +1,16 @@
+.button5{
+
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    font-size: 20px;
+    background-color: transparent;
+    border: transparent;
+    cursor:pointer;
+    
+}
+
+
 .list{
     list-style-type: none;
     display: flex;
@@ -75,6 +88,18 @@
         flex-direction: row;
         margin-bottom: 1rem;
     }
+
+    .button5{
+
+        color: white;
+        text-decoration: none;
+        text-shadow: 1px 1px 2px black;
+        font-size: 12px;
+        background-color: transparent;
+        border: transparent;
+        cursor:pointer;
+        
+    }
 }
 
 
@@ -112,5 +137,17 @@
         margin-bottom: 1rem;
     }
 
+
+    .button5{
+
+        color: white;
+        text-decoration: none;
+        text-shadow: 1px 1px 2px black;
+        font-size: 12px;
+        background-color: transparent;
+        border: transparent;
+        cursor:pointer;
+        
+    }
 
 }
