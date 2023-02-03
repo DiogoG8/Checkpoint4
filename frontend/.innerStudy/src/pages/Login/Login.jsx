@@ -38,7 +38,15 @@ function Login() {
         setAuthToken(token);
         navigate("/mainpage");
       })
-      .catch((error) => {});
+      .catch((error) => {
+        if (error.response.status === 422 || error.response.status === 401) {
+          setErrors(
+            <div className={styles.linkstyle}>
+              <div>The email or password is incorrect. </div>
+            </div>
+          );
+        }
+      });
   }
 
   return (
