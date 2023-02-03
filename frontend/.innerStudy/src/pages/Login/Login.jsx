@@ -39,7 +39,11 @@ function Login() {
         navigate("/mainpage");
       })
       .catch((error) => {
-        if (error.response.status === 422 || error.response.status === 401) {
+        if (
+          error.response.status === 422 ||
+          error.response.status === 401 ||
+          error.response.status === 500
+        ) {
           setErrors(
             <div className={styles.linkstyle}>
               <div>The email or password is incorrect. </div>
