@@ -9,4 +9,4 @@ Steps to run .innerStudy:
 5 - You need to create/register at least one entry to work;
 6 - Have fun !
 
-(NOTE: The MyProfile section won't work. I will feed the content to that section after I inform/present the project to the instructor)
+(NOTE: The app works in big laptops and mobiles from 320px for 426px)
