@@ -1,6 +1,11 @@
 const validateContactForm = (req, res, next) => {
-  const { topic, issue, user_id } = req.body;
+  const { topic, issue, email } = req.body;
   const errors = [];
+  const emailRegex = /[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,3}/;
+
+  if (!emailRegex.test(email)) {
+    errors.push({ field: "email", message: "Invalid email" });
+  }
 
   if (topic == null) {
     errors.push({ field: "topic", message: "This field is required" });

@@ -11,12 +11,14 @@ function ContactUs() {
   const [formsubmit, setFormsubmit] = useState(false);
   const [issue, setIssue] = useState("");
   const [topic, setTopic] = useState("");
+  const [email, setEmail] = useState("");
+  const emailRegex = /[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,3}/;
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5005/api/contact", { topic, issue })
+      .post("http://localhost:5005/api/contact", { topic, issue, email })
       .then((response) => response.data)
       .then((data) => {
         console.log(data);
@@ -43,6 +45,17 @@ function ContactUs() {
               </select>
             </div>
             <div className={styles.flex}>
+              <label htmlFor="email">Email</label>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                className={styles.checkbox1}
+                id="email"
+                name="email"
+                type="text"
+                value={email}
+              />
+            </div>
+            <div className={styles.flex}>
               <label htmlFor="topic">Title</label>
               <input
                 onChange={(e) => setTopic(e.target.value)}
@@ -64,7 +77,7 @@ function ContactUs() {
                 value={issue}
               />
             </div>
-            {topic.length > 5 && issue.length > 10 ? (
+            {topic.length > 5 && issue.length > 10 && emailRegex.test(email) ? (
               <button className={styles.button2} onClick={handleSubmit}>
                 <span>Send Message!</span>
               </button>
