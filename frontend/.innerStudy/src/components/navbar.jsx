@@ -10,7 +10,7 @@ function Navbar() {
 
   const logoutHandler = () => {
     setAuthToken(undefined);
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     navigate("/");
   };
 
