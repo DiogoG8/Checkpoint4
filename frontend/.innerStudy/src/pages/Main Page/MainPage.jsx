@@ -9,7 +9,6 @@ function MainPage() {
   return (
     <>
       <div className={styles.container5}>
-        <Navbar />
         <div className={styles.text7}>
           <div className={styles.text4}>
             <div className={styles.text}>Learn Better With</div>

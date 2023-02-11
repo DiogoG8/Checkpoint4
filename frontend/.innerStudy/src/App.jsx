@@ -10,12 +10,18 @@ import StudyMaterials from "./pages/Study Materials/StudyMaterials";
 import StudyMaterialsSingle from "./pages/Study Materials/StudyMaterialsSingle";
 import TokenContext from "./contexts/authtoken";
 import IdContext from "./contexts/idcontext";
+import Verify from "./pages/UserVerif/UserVerif";
 import axios from "axios";
 
 import { Link, Route, Router, Routes } from "react-router-dom";
 
 function App() {
-  const [authToken, setAuthToken] = useState();
+  const [authToken, setAuthToken] = useState(
+    sessionStorage.getItem("auth_token")
+  );
+  {
+    /*We added this line so when the page refreshes the token still appears*/
+  }
   const [id, setId] = useState();
   const [content, setContent] = useState([]);
   const [counter, setCounter] = useState([]);
@@ -46,6 +52,7 @@ function App() {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/register" element={<Register />} />
             <Route path="/mainpage" element={<MainPage />} />
+            <Route path="/confirmation" element={<Verify />} />
             <Route path="/myprofile/:id" element={<MyProfile />} />
             <Route
               path="/studymaterials"

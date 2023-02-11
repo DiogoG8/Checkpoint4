@@ -57,3 +57,5 @@ app.get("/api/counter", contentHandlers.offersCounter); //TESTED
 
 //Contact
 app.post("/api/contact", validateContactForm, contactHandlers.postMessage); //TESTED
+
+app.get("/api/confirmation", userHandlers.verifyUser);

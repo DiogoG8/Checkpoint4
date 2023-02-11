@@ -6,7 +6,6 @@ import Footer from "../../components/footer";
 function StudyMaterials({ content, counter }) {
   return (
     <>
-      <Navbar />
       <div className={styles.title}>.innerStudy</div>
       <div className={styles.warning}>📖 Learn about your favorite topics!</div>
       <div className={styles.h_line1}></div>
