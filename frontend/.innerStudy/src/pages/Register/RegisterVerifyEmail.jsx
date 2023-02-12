@@ -5,6 +5,10 @@ import axios from "axios";
 import styles from "../Register/Register.module.css";
 
 const RegisterVerify = () => {
+  const handlerResendEmail = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <>
       <div className={styles.verifycontainer}>
@@ -13,7 +17,9 @@ const RegisterVerify = () => {
           Verify your account! An email was sent to your inbox, so you can
           proceed 📧
         </div>
-        <div className={styles.verify2}>Didn't get any email? Resend it!</div>
+        <div onClick={handlerResendEmail} className={styles.verify2}>
+          Didn't get any email? Resend it!
+        </div>
         <Link className={styles.verify3} to="/">
           Oh, you are a registered user? Just log in!
         </Link>

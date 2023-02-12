@@ -45,6 +45,28 @@ const updateUserInfo = (req, res) => {
     });
 };
 
+const resendEmail = (req, res) => {
+  const emailVerificationToken = token;
+
+  const url = `http://localhost:3000/confirmation?name=${emailVerificationToken}`;
+
+  mailer.sendMail(
+    {
+      from: "diogogoliveira88@gmail.com",
+      to: "diogogoliveira88@gmail.com",
+      subject: "The ChalkBoard Verification",
+      text:
+        "Please click on the following link to confirm your registration: " +
+        url,
+      html:
+        '<p>Please click on the following link to confirm your registration</p><a href="' +
+        url +
+        '">Click here</a>',
+    },
+
+    res.sendStatus(200)
+  );
+};
 const postNewUser = (req, res) => {
   const hashingOptions = {
     type: argon2.argon2id,
@@ -88,6 +110,10 @@ const postNewUser = (req, res) => {
                     expiresIn: "1h",
                   }
                 );
+
+                res.json({
+                  token: emailVerificationToken,
+                });
 
                 const url = `http://localhost:3000/confirmation?name=${emailVerificationToken}`;
 
@@ -201,4 +227,5 @@ module.exports = {
   postNewUser,
   verifyEmailandPassword,
   verifyUser,
+  resendEmail,
 };
