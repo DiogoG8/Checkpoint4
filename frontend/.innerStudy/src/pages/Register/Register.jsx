@@ -11,6 +11,13 @@ function Register() {
   const [password, setPassword] = useState("");
   const [tos, setTos] = useState(false);
   const [newsletter, setNewsletter] = useState(false);
+  const [errors, setErrors] = useState("");
+  const [regsubmit, setRegsubmit] = useState(false);
+
+  useEffect(() => {
+    setErrors("");
+    setRegsubmit(false);
+  }, [name, email, tos, password, newsletter]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,7 +32,18 @@ function Register() {
       })
       .then((response) => response.data)
       .then((data) => {
-        console.log(data);
+        console.log(data); //Set errors to null when doing some error catching
+        setRegsubmit(true);
+        setErrors("");
+      })
+      .catch((error) => {
+        if (error.response.status === 500) {
+          setErrors(
+            <div className={styles.link2}>
+              <div>The user already exists. Verify the account or log in!</div>
+            </div>
+          );
+        }
       });
   };
 
@@ -126,12 +144,25 @@ function Register() {
                     </li>
                   </ul>
                 </>
+              ) : errors ? (
+                <>
+                  <button className={styles.button2} onClick={handleSubmit}>
+                    <span>Create Account</span>
+                  </button>
+                  {errors}
+                </>
               ) : (
                 <button className={styles.button} onClick={handleSubmit}>
-                  <Link className={styles.link} to="/">
-                    <span>Create Account</span>
-                  </Link>
+                  <span>Create Account</span>
                 </button>
+              )}
+              {regsubmit === true ? (
+                <div className={styles.link2}>
+                  Your account was created! You should have received link to
+                  validate it!
+                </div>
+              ) : (
+                ""
               )}
               <Link className={styles.link2} to="/">
                 Oh, you are a registered user? Just log in!
