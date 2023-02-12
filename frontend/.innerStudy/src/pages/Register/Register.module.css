@@ -1,4 +1,49 @@
+.verifycontainer{
+text-align: center;
+margin-top: 12rem;
 
+}
+
+.verify{
+    font-size: 2rem;
+    margin-bottom: 5rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px black;
+    color: white;
+}
+
+.verify1{
+font-weight: 900;
+font-size: 4rem;
+margin-bottom: 3rem;
+text-shadow: 1px 1px 2px black;
+color: white;
+
+}
+
+.verify2{
+    align-self: center;
+    text-shadow: none;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 13rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    
+    }
+
+
+    .verify3{
+        align-self: center;
+        text-shadow: none;
+        color: white;
+        text-decoration: none;
+        margin-bottom: 0rem;
+        
+        font-size: 20px;
+        
+        }
     
     .container1 {
     align-self: center;

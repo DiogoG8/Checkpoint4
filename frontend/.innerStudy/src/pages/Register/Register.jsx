@@ -1,5 +1,5 @@
 import react from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../Register/Register.module.css";
@@ -13,6 +13,7 @@ function Register() {
   const [newsletter, setNewsletter] = useState(false);
   const [errors, setErrors] = useState("");
   const [regsubmit, setRegsubmit] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setErrors("");
@@ -39,6 +40,7 @@ function Register() {
         console.log(data); //Set errors to null when doing some error catching
         setRegsubmit(true);
         setErrors("");
+        navigate("/registerverify");
       })
       .catch((error) => {
         if (error.response.status === 500) {
@@ -157,7 +159,7 @@ function Register() {
                 </>
               ) : (
                 <button className={styles.button} onClick={handleSubmit}>
-                  <span>Create Account</span>
+                  <span className={styles.link}>Create Account</span>
                 </button>
               )}
               {regsubmit === true ? (

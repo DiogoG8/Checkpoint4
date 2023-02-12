@@ -11,6 +11,7 @@ import StudyMaterialsSingle from "./pages/Study Materials/StudyMaterialsSingle";
 import TokenContext from "./contexts/authtoken";
 import IdContext from "./contexts/idcontext";
 import Verify from "./pages/UserVerif/UserVerif";
+import RegisterVerify from "./pages/Register/RegisterVerifyEmail";
 import axios from "axios";
 
 import { Link, Route, Router, Routes } from "react-router-dom";
@@ -52,6 +53,7 @@ function App() {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/register" element={<Register />} />
             <Route path="/mainpage" element={<MainPage />} />
+            <Route path="/registerverify" element={<RegisterVerify />} />
             <Route path="/confirmation" element={<Verify />} />
             <Route path="/myprofile/:id" element={<MyProfile />} />
             <Route
