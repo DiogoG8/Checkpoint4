@@ -95,10 +95,6 @@ const postNewUser = (req, res) => {
                 [name, email, hashedPassword, tos, newsletter]
               )
               .then(([users]) => {
-                console.log(Array.isArray(users));
-                console.log(req.users);
-                console.log(users);
-                console.log(Array);
                 const mail = {
                   email: email,
                 };
@@ -110,10 +106,6 @@ const postNewUser = (req, res) => {
                     expiresIn: "1h",
                   }
                 );
-
-                res.json({
-                  token: emailVerificationToken,
-                });
 
                 const url = `http://localhost:3000/confirmation?name=${emailVerificationToken}`;
 
