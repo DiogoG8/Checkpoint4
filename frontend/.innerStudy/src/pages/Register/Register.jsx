@@ -19,6 +19,10 @@ function Register() {
     setRegsubmit(false);
   }, [name, email, tos, password, newsletter]);
 
+  useEffect(() => {
+    setRegsubmit(false);
+  }, [errors]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
