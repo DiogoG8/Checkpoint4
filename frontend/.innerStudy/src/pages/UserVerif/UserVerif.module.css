@@ -1,0 +1,21 @@
+.verify{
+    text-align: center;
+    font-size: 4rem;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 17rem;
+    color: white;
+}
+
+.verify3{
+    align-self: center;
+    text-shadow: none;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px black;
+
+    }
+
+    .verify2{
+        margin-bottom: 15rem;
+    }

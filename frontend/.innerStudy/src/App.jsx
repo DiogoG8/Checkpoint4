@@ -37,9 +37,7 @@ function App() {
   useEffect(() => {
     axios
       .get(`http://localhost:5005/api/counter`)
-      .then((response) => response.data)
-      .then((data) => console.log(data))
-      .then((data) => setCounter(data));
+      .then((response) => response.data);
   }, []);
 
   return (

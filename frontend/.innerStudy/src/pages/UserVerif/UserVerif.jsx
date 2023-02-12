@@ -1,5 +1,7 @@
 import React, { useDebugValue, useState, useEffect } from "react";
 import axios from "axios";
+import styles from "../UserVerif/UserVerif.module.css";
+import { Link } from "react-router-dom";
 
 const Verify = () => {
   const [verificationCode, setVerificationCode] = useState("");
@@ -9,9 +11,6 @@ const Verify = () => {
     if (window.location.search) {
       const UrlParams = new URLSearchParams(window.location.search);
       const verifyCode = UrlParams.get("name");
-      console.log(UrlParams);
-      console.log(verifyCode);
-
       setVerificationCode(verifyCode);
     }
   }, []);
@@ -24,15 +23,30 @@ const Verify = () => {
           Authorization: `Bearer ${verificationCode}`,
         },
       })
-      .catch((err) => {
-        console.error(err);
-        setErrorMsg(err.response.data);
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((errorMsg) => {
+        if (errorMsg.response.status === 404) {
+          setErrorMsg(
+            <div className={styles.verify2}>
+              Your account is already verified!
+            </div>
+          );
+        }
       });
   }, [verificationCode]);
 
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className={styles.verify}>
+      {errorMsg ? (
+        errorMsg
+      ) : (
+        <div className={styles.verify2}> Welcome to Chalkboard</div>
+      )}
+      <Link className={styles.verify3} to="/">
+        Go back to the login page!
+      </Link>
     </div>
   );
 };
