@@ -2,6 +2,7 @@ const database = require("../database");
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 const mailer = require("../contact/mailer");
+const emailCheck = require("email-check");
 
 const getUserInfo = (req, res) => {
   const id = parseInt(req.params.id);
@@ -53,79 +54,69 @@ const postNewUser = (req, res) => {
   };
   const { name, email, hashedPassword, tos, newsletter, regtoken } = req.body;
 
-  argon2
-    .hash(req.body.password, hashingOptions)
-    .then((hashedPassword) => {
-      req.body.hashedPassword = hashedPassword;
-      delete req.body.password;
-
-      database
-        .query(
-          "INSERT INTO users(name, email, hashedPassword, tos, newsletter, regtoken) VALUES (?, ?, ?, ?, ?, ?)",
-          [name, email, hashedPassword, tos, newsletter, regtoken]
-        )
-        .then(([result]) => {
-          const date = new Date();
-          const mail = {
-            email: email,
-          };
-
-          let emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, {
-            expiresIn: "1h",
-          });
-
-          const url = `http://localhost:3000/confirmation?name=${emailVerificationToken}`;
-
-          res.location(`/api/users/${result.insertId}`).sendStatus(201);
-          mailer.sendMail(
-            {
-              from: "diogogoliveira88@gmail.com",
-              to: "diogogoliveira88@gmail.com",
-              subject: "The ChalkBoard Verification",
-              text:
-                "Please click on the following link to confirm your registration: " +
-                url,
-              html:
-                '<p>Please click on the following link to confirm your registration</p><a href="' +
-                url +
-                '">Click here</a>',
-            },
-            (err, info) => {
-              if (err) console.error(err);
-              else console.log(info);
-            }
-          );
-        });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const verifyUser2 = (req, res) => {
-  const { status, email } = req.body;
-
-  const authorizationHeader = req.get("Authorization");
-
-  const [type, token] = authorizationHeader.split(" ");
-
-  console.log(token);
-
   database
-    .query("select status from users where email = ?", [status, email])
+    .query("SELECT EXISTS(SELECT * from users WHERE email=?)", [email]) //  Verify Email
     .then(([result]) => {
-      console.log(result);
-      if (result[0].status === "Pending") {
-        result[0].status === "Active";
-        res.sendStatus(201);
+      if (Object.values(result[0]) == true) {
+        res.sendStatus(500);
+        console.log(Object.values(result[0]).includes("0"));
       } else {
-        res.status(400).send("Test Failed");
+        argon2
+          .hash(req.body.password, hashingOptions)
+          .then((hashedPassword) => {
+            req.body.hashedPassword = hashedPassword;
+            delete req.body.password;
+
+            database
+              .query(
+                "INSERT INTO users(name, email, hashedPassword, tos, newsletter) VALUES (?, ?, ?, ?, ?)",
+                [name, email, hashedPassword, tos, newsletter]
+              )
+              .then(([users]) => {
+                console.log(Array.isArray(users));
+                console.log(req.users);
+                console.log(users);
+                console.log(Array);
+                const mail = {
+                  email: email,
+                };
+
+                let emailVerificationToken = jwt.sign(
+                  mail,
+                  process.env.JWT_SECRET,
+                  {
+                    expiresIn: "1h",
+                  }
+                );
+
+                const url = `http://localhost:3000/confirmation?name=${emailVerificationToken}`;
+
+                res.location(`/api/users/${users.insertId}`).sendStatus(201);
+                mailer.sendMail(
+                  {
+                    from: "diogogoliveira88@gmail.com",
+                    to: "diogogoliveira88@gmail.com",
+                    subject: "The ChalkBoard Verification",
+                    text:
+                      "Please click on the following link to confirm your registration: " +
+                      url,
+                    html:
+                      '<p>Please click on the following link to confirm your registration</p><a href="' +
+                      url +
+                      '">Click here</a>',
+                  },
+                  (err, info) => {
+                    if (err) console.error(err);
+                    else console.log(info);
+                  }
+                );
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+            res.sendStatus(500);
+          });
       }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error retrieving data from database");
     });
 };
 
@@ -141,12 +132,10 @@ const verifyUser = (req, res) => {
         const { email } = verifiedToken;
 
         database
-          .query("SELECT status FROM users where email = ?", [email])
+          .query("SELECT status FROM users where email = ?", [email]) //Verify if its already active or not!
           .then(([result]) => {
-            if (result === null) {
-              res.status(404).send("User not found");
-            } else if (result.status !== undefined) {
-              res.status(400).send("This account is already verified");
+            if (result[0].status === "Active") {
+              res.status(404).send("User Already Verified");
             } else {
               database.query("UPDATE users SET status=? where email = ?", [
                 "Active",
@@ -170,29 +159,34 @@ const verifyEmailandPassword = (req, res) => {
   database
     .query("select * from users where email = ?", [email])
     .then(([users]) => {
-      if (users[0] != null) {
-        req.user = users[0];
-        argon2
-          .verify(req.user.hashedPassword, req.body.password)
-          .then((isVerified) => {
-            if (isVerified) {
-              const payload = { sub: req.user.id };
-
-              const token = jwt.sign(payload, process.env.JWT_SECRET, {
-                expiresIn: "1h",
-              });
-
-              delete req.user.hashedPassword;
-              res.send({ token, user: req.user });
-            } else {
-              res.sendStatus(500);
-            }
-          })
-          .catch((err) => {
-            console.error(err);
-          });
+      if (users[0].status != "Active") {
+        res.sendStatus(400);
       } else {
-        res.sendStatus(401);
+        //Status Verification (verification with the user verificaiton)
+        if (users[0] != null) {
+          req.user = users[0];
+          argon2
+            .verify(req.user.hashedPassword, req.body.password)
+            .then((isVerified) => {
+              if (isVerified) {
+                const payload = { sub: req.user.id };
+
+                const token = jwt.sign(payload, process.env.JWT_SECRET, {
+                  expiresIn: "1h",
+                });
+
+                delete req.user.hashedPassword;
+                res.send({ token, user: req.user });
+              } else {
+                res.sendStatus(422); //The password validation error was matched with this one, because they both relate to a wrong password
+              }
+            })
+            .catch((err) => {
+              res.sendStatus(500); //This error doesn't matter for our case
+            });
+        } else {
+          res.sendStatus(401); //This error doesn't matter for our case
+        }
       }
     })
     .catch((err) => {

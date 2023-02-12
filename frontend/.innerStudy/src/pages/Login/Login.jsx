@@ -39,14 +39,22 @@ function Login() {
         navigate("/mainpage");
       })
       .catch((error) => {
-        if (
-          error.response.status === 422 ||
-          error.response.status === 401 ||
-          error.response.status === 500
-        ) {
+        if (error.response.status === 422 || error.response.status === 401) {
           setErrors(
             <div className={styles.linkstyle}>
-              <div>The email or password is incorrect. </div>
+              <div>The email or password is incorrect. Check again! 🕐</div>
+            </div>
+          );
+        } else if (error.response.status === 400) {
+          setErrors(
+            <div className={styles.linkstyle}>
+              <div>The email isn't verified! Check your email 📧</div>
+            </div>
+          );
+        } else if (error.response.status === 500) {
+          setErrors(
+            <div className={styles.linkstyle}>
+              <div>The email doesn't exist!</div>
             </div>
           );
         }
