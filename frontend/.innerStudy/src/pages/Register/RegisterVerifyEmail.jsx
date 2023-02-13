@@ -1,11 +1,16 @@
 import react from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../Register/Register.module.css";
 
 const RegisterVerify = () => {
-  const [semail, setsEmail] = useState("");
+  const [errors, setErrors] = useState("");
+  const navigate = useNavigate();
+
+  const handlerGoback = () => {
+    navigate("/");
+  };
 
   const handlerResendEmail = (event) => {
     event.preventDefault();
@@ -21,6 +26,7 @@ const RegisterVerify = () => {
       })
       .catch((error) => {
         console.log(error);
+        setErrors(error);
       });
   };
 
@@ -32,12 +38,20 @@ const RegisterVerify = () => {
           Verify your account! An email was sent to your inbox, so you can
           proceed 📧
         </div>
-        <div onClick={handlerResendEmail} className={styles.verify4}>
-          Didn't get any email? Resend it!
-        </div>
-        <Link className={styles.verify3} to="/">
-          Oh, you are a registered user? Just log in!
-        </Link>
+        {errors ? (
+          <div onClick={handlerGoback} className={styles.verify4}>
+            Oops! Something went wrong. Back to the login page
+          </div>
+        ) : (
+          <>
+            <div onClick={handlerResendEmail} className={styles.verify4}>
+              Didn't get any email? Resend it!
+            </div>
+            <Link className={styles.verify3} to="/">
+              Oh, you are a registered user? Just login!
+            </Link>
+          </>
+        )}
       </div>
     </>
   );
