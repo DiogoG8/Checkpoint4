@@ -1,3 +1,10 @@
+.link4{
+    align-self: center;
+    color: blue;
+    text-decoration: underline;
+    font-size: 15px;
+    cursor: pointer;
+}
 
 
 .container1 {
@@ -16,7 +23,7 @@
         background-color: lightslategray;
         display: flex;
         flex-direction: column;
-        gap:1rem;
+        gap:3rem;
         margin-top:5rem;
         align-items: center
     
@@ -129,6 +136,7 @@
         text-shadow: none;
         color: white;
         text-decoration: none;
+        text-align: center;
     }
     .flex3 {
         gap:1rem;

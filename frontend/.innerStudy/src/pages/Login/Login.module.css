@@ -1,5 +1,9 @@
 .link4{
     align-self: center;
+    color: blue;
+    text-decoration: underline;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .container1 {
