@@ -5,8 +5,23 @@ import axios from "axios";
 import styles from "../Register/Register.module.css";
 
 const RegisterVerify = () => {
+  const [semail, setsEmail] = useState("");
+
   const handlerResendEmail = (event) => {
     event.preventDefault();
+
+    const emailstorage = sessionStorage.getItem("Email");
+    axios
+      .post("http://localhost:5005/api/resendemail", {
+        email: emailstorage,
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -17,9 +32,9 @@ const RegisterVerify = () => {
           Verify your account! An email was sent to your inbox, so you can
           proceed 📧
         </div>
-        <div onClick={handlerResendEmail} className={styles.verify2}>
+        <button onClick={handlerResendEmail} className={styles.verify2}>
           Didn't get any email? Resend it!
-        </div>
+        </button>
         <Link className={styles.verify3} to="/">
           Oh, you are a registered user? Just log in!
         </Link>

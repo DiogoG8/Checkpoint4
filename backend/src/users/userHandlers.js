@@ -46,26 +46,50 @@ const updateUserInfo = (req, res) => {
 };
 
 const resendEmail = (req, res) => {
-  const emailVerificationToken = token;
+  const { email } = req.body;
 
-  const url = `http://localhost:3000/confirmation?name=${emailVerificationToken}`;
+  database
+    .query("SELECT EXISTS(SELECT * from users WHERE email=?)", [email])
 
-  mailer.sendMail(
-    {
-      from: "diogogoliveira88@gmail.com",
-      to: "diogogoliveira88@gmail.com",
-      subject: "The ChalkBoard Verification",
-      text:
-        "Please click on the following link to confirm your registration: " +
-        url,
-      html:
-        '<p>Please click on the following link to confirm your registration</p><a href="' +
-        url +
-        '">Click here</a>',
-    },
+    .then(([users]) => {
+      if (Object.values(users[0]) == true) {
+        const mail = {
+          email: email,
+        };
 
-    res.sendStatus(200)
-  );
+        let emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, {
+          expiresIn: "1h",
+        });
+
+        const url = `http://localhost:3000/confirmation?name=${emailVerificationToken}`;
+
+        res.sendStatus(200);
+        mailer.sendMail(
+          {
+            from: "diogogoliveira88@gmail.com",
+            to: "diogogoliveira88@gmail.com",
+            subject: "The ChalkBoard Verification",
+            text:
+              "Please click on the following link to confirm your registration: " +
+              url,
+            html:
+              '<p>Please click on the following link to confirm your registration</p><a href="' +
+              url +
+              '">Click here</a>',
+          },
+          (err, info) => {
+            if (err) console.error(err);
+            else console.log(info);
+          }
+        );
+      } else {
+        res.sendStatus(400);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 const postNewUser = (req, res) => {
   const hashingOptions = {

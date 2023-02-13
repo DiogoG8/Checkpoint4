@@ -59,4 +59,4 @@ app.get("/api/counter", contentHandlers.offersCounter); //TESTED
 app.post("/api/contact", validateContactForm, contactHandlers.postMessage); //TESTED
 
 app.get("/api/confirmation", userHandlers.verifyUser); //TESTED with a mistake
-app.get("/api/resendemail", userHandlers.resendEmail);
+app.post("/api/resendemail", userHandlers.resendEmail);

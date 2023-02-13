@@ -9,6 +9,7 @@ const Verify = () => {
 
   useEffect(() => {
     if (window.location.search) {
+      console.log("Retrieving token from URL");
       const UrlParams = new URLSearchParams(window.location.search);
       const verifyCode = UrlParams.get("name");
       setVerificationCode(verifyCode);
@@ -16,6 +17,10 @@ const Verify = () => {
   }, []);
 
   useEffect(() => {
+    if (verificationCode == null || verificationCode === "") {
+      return;
+    }
+    console.log("Sending API Request");
     axios
       .get("http://localhost:5005/api/confirmation", {
         headers: {
@@ -28,6 +33,7 @@ const Verify = () => {
       })
       .catch((errorMsg) => {
         if (errorMsg.response.status === 404) {
+          console.log("This is an error");
           setErrorMsg(
             <div className={styles.verify2}>
               Your account is already verified!

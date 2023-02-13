@@ -41,7 +41,9 @@ function Register() {
         console.log(data); //Set errors to null when doing some error catching
         setRegsubmit(true);
         setErrors("");
-        navigate("/registerverify");
+        window.sessionStorage.setItem("Email", email);
+        window.open("/registerverify", "_blank"); //Opens a new tab while going to a new route - we substituted the useNavigate hook
+        console.log(window.sessionStorage);
       })
       .catch((error) => {
         if (error.response.status === 500) {
@@ -166,6 +168,7 @@ function Register() {
                   <button className={styles.button2} onClick={handleSubmit}>
                     <span>Create Account</span>
                   </button>
+
                   {errors}
                 </>
               ) : (
