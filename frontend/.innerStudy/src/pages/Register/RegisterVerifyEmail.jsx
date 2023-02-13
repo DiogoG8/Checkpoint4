@@ -32,9 +32,9 @@ const RegisterVerify = () => {
           Verify your account! An email was sent to your inbox, so you can
           proceed 📧
         </div>
-        <button onClick={handlerResendEmail} className={styles.verify2}>
+        <div onClick={handlerResendEmail} className={styles.verify4}>
           Didn't get any email? Resend it!
-        </button>
+        </div>
         <Link className={styles.verify3} to="/">
           Oh, you are a registered user? Just log in!
         </Link>

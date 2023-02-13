@@ -1,3 +1,16 @@
+.verify4{
+    align-self: center;
+    text-shadow: none;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 13rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
 .eye {
     margin: 100px;
     position: absolute;
@@ -66,6 +79,7 @@ color: white;
         color: white;
         text-decoration: none;
         margin-bottom: 0rem;
+        cursor: pointer;
         
         font-size: 20px;
         
