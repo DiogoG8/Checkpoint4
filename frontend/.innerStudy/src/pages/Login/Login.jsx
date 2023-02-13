@@ -12,7 +12,7 @@ function Login() {
   const [errors, setErrors] = useState("");
 
   function handleGoReset() {
-    window.open("/passwordreset", "_blank");
+    window.open("/sendreset", "_blank");
   }
 
   function handleSubmit(event) {

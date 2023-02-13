@@ -13,6 +13,7 @@ import IdContext from "./contexts/idcontext";
 import Verify from "./pages/UserVerif/UserVerif";
 import RegisterVerify from "./pages/Register/RegisterVerifyEmail";
 import ResetPass from "./pages/Reset Password/Resetpass";
+import VerifyPass from "./pages/Reset Password/Resetpassverif";
 import axios from "axios";
 
 import { Link, Route, Router, Routes } from "react-router-dom";
@@ -54,8 +55,9 @@ function App() {
             <Route path="/mainpage" element={<MainPage />} />
             <Route path="/registerverify" element={<RegisterVerify />} />
             <Route path="/confirmation" element={<Verify />} />
-            <Route path="/passwordreset" element={<ResetPass />} />
+            <Route path="/sendreset" element={<ResetPass />} />
             <Route path="/myprofile/:id" element={<MyProfile />} />
+            <Route path="passwordreset" element={<VerifyPass />} />
             <Route
               path="/studymaterials"
               element={<StudyMaterials content={content} counter={counter} />}
