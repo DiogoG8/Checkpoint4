@@ -237,6 +237,50 @@ const verifyEmailandPassword = (req, res) => {
     });
 };
 
+const resetPassword = (req, res) => {
+  const { email } = req.body;
+
+  database
+    .query("select * from users where email = ?", [email])
+    .then(([users]) => {
+      if (users[0].status === "Active") {
+        const mail = {
+          email: email,
+        };
+
+        let emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, {
+          expiresIn: "1h",
+        });
+
+        const url = `http://localhost:3000/passwordreset?pass=${emailVerificationToken}`;
+
+        res.sendStatus(200);
+        mailer.sendMail(
+          {
+            from: "diogogoliveira88@gmail.com",
+            to: "diogogoliveira88@gmail.com",
+            subject: "The ChalkBoard Password Reset",
+            text: "To reset your password, press the link below " + url,
+            html:
+              '<p>To reset your password, press the link below</p><a href="' +
+              url +
+              '">Click here</a>',
+          },
+          (err, info) => {
+            if (err) console.error(err);
+            else console.log(info);
+          }
+        );
+      } else {
+        res.sendStatus(400);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   getUserInfo,
   updateUserInfo,
@@ -244,4 +288,5 @@ module.exports = {
   verifyEmailandPassword,
   verifyUser,
   resendEmail,
+  resetPassword,
 };

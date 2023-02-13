@@ -60,3 +60,5 @@ app.post("/api/contact", validateContactForm, contactHandlers.postMessage); //TE
 
 app.get("/api/confirmation", userHandlers.verifyUser); //TESTED with a mistake
 app.post("/api/resendemail", userHandlers.resendEmail);
+
+app.post("/api/resetpassword", userHandlers.resetPassword);

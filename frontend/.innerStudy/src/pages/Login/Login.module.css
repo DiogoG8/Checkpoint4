@@ -1,4 +1,6 @@
-
+.link4{
+    align-self: center;
+}
 
 .container1 {
 align-self: center;
@@ -129,6 +131,8 @@ input{
     text-shadow: none;
     color: white;
     text-decoration: none;
+    text-align: center;
+
 }
 .flex3 {
     gap:1rem;

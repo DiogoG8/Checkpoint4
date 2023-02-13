@@ -11,17 +11,20 @@ function Login() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState("");
 
+  function handleGoReset() {
+    window.open("/passwordreset", "_blank");
+  }
+
   function handleSubmit(event) {
-    console.log("hey", authToken, window);
     if (authToken != null || window == null) return;
 
     const authTokenFromsessionStorage = sessionStorage.getItem("auth_token");
-    console.log("hey2", authTokenFromsessionStorage);
+
     if (authTokenFromsessionStorage != null) {
       setAuthToken(authTokenFromsessionStorage);
       return;
     }
-    console.log("hey3");
+
     axios
       .post("http://localhost:5005/api/login", {
         email,
@@ -43,6 +46,9 @@ function Login() {
           setErrors(
             <div className={styles.linkstyle}>
               <div>The email or password is incorrect. Check again! 🕐</div>
+              <div className={styles.link4} onClick={handleGoReset}>
+                Forgot your password?
+              </div>
             </div>
           );
         } else if (error.response.status === 400) {
