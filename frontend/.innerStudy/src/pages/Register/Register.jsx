@@ -13,6 +13,7 @@ function Register() {
   const [newsletter, setNewsletter] = useState(false);
   const [errors, setErrors] = useState("");
   const [regsubmit, setRegsubmit] = useState(false);
+  const [buttonshow, setButtonshow] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,6 +62,12 @@ function Register() {
     setNewsletter(!newsletter);
   };
 
+  const togglePassword = (event) => {
+    //Event to show or not show the password!
+    event.preventDefault();
+    setButtonshow(!buttonshow);
+  };
+
   return (
     <>
       <div className={styles.container0}>
@@ -94,9 +101,13 @@ function Register() {
                   onChange={(e) => setPassword(e.target.value)}
                   id="password"
                   name="password"
-                  type="text"
+                  type={buttonshow ? "text" : "password"} //It puts the *
                   value={password}
                 />
+                <button //CSS and HTML for the show button
+                  className={styles.eye}
+                  onClick={togglePassword}
+                ></button>
               </div>
               <div>
                 <div className={styles.flex2}>

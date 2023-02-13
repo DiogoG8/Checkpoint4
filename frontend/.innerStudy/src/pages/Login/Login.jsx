@@ -83,7 +83,7 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 id="password"
                 name="password"
-                type="text"
+                type="password" //It puts the *
                 value={password}
               />
             </div>
