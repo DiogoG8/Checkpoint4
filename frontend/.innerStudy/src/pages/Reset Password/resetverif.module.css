@@ -22,7 +22,29 @@
     top: 2.7px;
   }
 
-
+  .eye2 {
+    margin: 100px;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border: solid 1px #000;
+    border-radius: 75% 15%;
+    /* position: relative; */
+    top: 54%;
+    right: 36%;
+    transform: rotate(41deg);
+  }
+  .eye2:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border: solid 1px #000;
+    border-radius: 50%;
+    left: 3px;
+    top: 2.7px;
+  }
 
 .flex111{    
     display: flex;

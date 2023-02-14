@@ -9,17 +9,21 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
   const [tos, setTos] = useState(false);
   const [newsletter, setNewsletter] = useState(false);
   const [errors, setErrors] = useState("");
   const [regsubmit, setRegsubmit] = useState(false);
   const [buttonshow, setButtonshow] = useState(false);
+  const [buttonshow2, setButtonshow2] = useState(false);
+  const [checkpass, setCheckpass] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     setErrors("");
+    setCheckpass("");
     setRegsubmit(false);
-  }, [name, email, tos, password, newsletter]);
+  }, [name, email, tos, password, passwordRepeat, newsletter]);
 
   useEffect(() => {
     setRegsubmit(false);
@@ -27,33 +31,41 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (password === passwordRepeat) {
+      axios
+        .post("http://localhost:5005/api/users", {
+          name,
+          email,
+          password,
+          tos,
+          newsletter,
+        })
 
-    axios
-      .post("http://localhost:5005/api/users", {
-        name,
-        email,
-        password,
-        tos,
-        newsletter,
-      })
-      .then((response) => response.data)
-      .then((data) => {
-        console.log(data); //Set errors to null when doing some error catching
-        setRegsubmit(true);
-        setErrors("");
-        window.sessionStorage.setItem("Email", email);
-        window.open("/registerverify", "_blank"); //Opens a new tab while going to a new route - we substituted the useNavigate hook
-        console.log(window.sessionStorage);
-      })
-      .catch((error) => {
-        if (error.response.status === 500) {
-          setErrors(
-            <div className={styles.link2}>
-              <div>The user already exists. Verify the account or log in!</div>
-            </div>
-          );
-        }
-      });
+        .then((response) => response.data)
+        .then((data) => {
+          console.log(data); //Set errors to null when doing some error catching
+          setRegsubmit(true);
+          setErrors("");
+          window.sessionStorage.setItem("Email", email);
+          window.open("/registerverify", "_blank"); //Opens a new tab while going to a new route - we substituted the useNavigate hook
+          console.log(window.sessionStorage);
+        })
+        .catch((error) => {
+          if (error.response.status === 500) {
+            setErrors(
+              <div className={styles.link2}>
+                <div>
+                  The user already exists. Verify the account or log in!
+                </div>
+              </div>
+            );
+          }
+        });
+    } else {
+      setCheckpass(
+        <div className={styles.link2}>The passwords don't match!</div>
+      );
+    }
   };
 
   const handleTOS = () => {
@@ -68,6 +80,12 @@ function Register() {
     //Event to show or not show the password!
     event.preventDefault();
     setButtonshow(!buttonshow);
+  };
+
+  const togglePassword2 = (event) => {
+    //Event to show or not show the password!
+    event.preventDefault();
+    setButtonshow2(!buttonshow2);
   };
 
   return (
@@ -111,6 +129,22 @@ function Register() {
                   onClick={togglePassword}
                 ></button>
               </div>
+
+              <div className={styles.flex}>
+                <label htmlFor="passwordRepeat">Repeat Password</label>
+                <input
+                  onChange={(e) => setPasswordRepeat(e.target.value)}
+                  id="passwordRepeat"
+                  name="passwordRepeat"
+                  type={buttonshow2 ? "text" : "password"}
+                  value={passwordRepeat}
+                />
+                <button
+                  className={styles.eye2}
+                  onClick={togglePassword2}
+                ></button>
+              </div>
+
               <div>
                 <div className={styles.flex2}>
                   <label htmlFor="tos">
@@ -142,6 +176,7 @@ function Register() {
               {name.length < 3 ||
               !emailRegex.test(email) ||
               password.length <= 10 ||
+              passwordRepeat.length <= 10 ||
               tos === false ? (
                 <>
                   <button
@@ -172,9 +207,12 @@ function Register() {
                   {errors}
                 </>
               ) : (
-                <button className={styles.button} onClick={handleSubmit}>
-                  <span className={styles.link}>Create Account</span>
-                </button>
+                <>
+                  <button className={styles.button} onClick={handleSubmit}>
+                    <span className={styles.link}>Create Account</span>
+                  </button>
+                  {checkpass}
+                </>
               )}
               {regsubmit === true ? (
                 <div className={styles.link2}>

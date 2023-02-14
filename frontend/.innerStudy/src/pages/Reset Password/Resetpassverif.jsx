@@ -8,46 +8,66 @@ import ResetContext from "../../contexts/resetsucesscontext";
 const VerifyPass = () => {
   const [verificationCode, setVerificationCode] = useState("");
   const [newpassword, setnewPassword] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
   const { msgreset, setMsgreset } = useContext(ResetContext);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [buttonshow, setButtonshow] = useState(false);
+  const [buttonshow2, setButtonshow2] = useState(false);
+  const [checkpass, setCheckpass] = useState("");
 
   const togglePassword = (event) => {
     event.preventDefault();
     setButtonshow(!buttonshow);
   };
 
+  const togglePassword2 = (event) => {
+    event.preventDefault();
+    setButtonshow2(!buttonshow2);
+  };
+
+  useEffect(() => {
+    setCheckpass("");
+  }, [error]);
+
   useEffect(() => {
     setError("");
+    setCheckpass("");
   }, [newpassword]);
 
   function handleChangePass(e) {
     e.preventDefault();
-    axios
-      .put("http://localhost:5005/api/updatepassword", {
-        email,
-        newpassword,
-      })
-      .then((response) => response.data)
-      .then((data) => {
-        console.log(data);
-        setMsgreset(
-          <div className={styles.linkstyle}>
-            Congratulations, your account was updated
-          </div>
-        );
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(
-          <div className={styles.flex111}>
-            Your new password should have over 10 digits!
-          </div>
-        );
-      });
+    if (newpassword === passwordRepeat) {
+      axios
+        .put("http://localhost:5005/api/updatepassword", {
+          email,
+          newpassword,
+        })
+        .then((response) => response.data)
+        .then((data) => {
+          console.log(data);
+          setMsgreset(
+            <div className={styles.linkstyle}>
+              Congratulations, your account was updated
+            </div>
+          );
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+          setError(
+            <div className={styles.flex111}>
+              Your new password should have over 10 digits!
+            </div>
+          );
+        });
+    } else {
+      setCheckpass(
+        <div className={styles.flex111}>The passwords don't match!</div>
+      );
+      return;
+    }
   }
   useEffect(() => {
     if (window.location.search) {
@@ -94,10 +114,25 @@ const VerifyPass = () => {
               />
               <button className={styles.eye} onClick={togglePassword}></button>
             </div>
+            <div className={styles.flex}>
+              <label htmlFor="passwordRepeat">Repeat Password</label>
+              <input
+                onChange={(e) => setPasswordRepeat(e.target.value)}
+                id="passwordRepeat"
+                name="passwordRepeat"
+                type={buttonshow2 ? "text" : "password"}
+                value={passwordRepeat}
+              />
+              <button
+                className={styles.eye2}
+                onClick={togglePassword2}
+              ></button>
+            </div>
             <button onClick={handleChangePass} className={styles.button}>
               <span>Change Password</span>
             </button>
             {error}
+            {checkpass}
           </form>
         </div>
       </div>
