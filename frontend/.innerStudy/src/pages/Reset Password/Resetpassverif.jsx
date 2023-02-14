@@ -10,6 +10,12 @@ const VerifyPass = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [buttonshow, setButtonshow] = useState(false);
+
+  const togglePassword = (event) => {
+    event.preventDefault();
+    setButtonshow(!buttonshow);
+  };
 
   useEffect(() => {
     setError("");
@@ -73,9 +79,10 @@ const VerifyPass = () => {
                 onChange={(e) => setnewPassword(e.target.value)}
                 id="newpassword"
                 name="newpassword"
-                type="password"
+                type={buttonshow ? "text" : "password"}
                 value={newpassword}
               />
+              <button className={styles.eye} onClick={togglePassword}></button>
             </div>
             <button onClick={handleChangePass} className={styles.button}>
               <span>Change Password</span>
