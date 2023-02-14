@@ -62,3 +62,5 @@ app.get("/api/confirmation", userHandlers.verifyUser); //TESTED with a mistake
 app.post("/api/resendemail", userHandlers.resendEmail);
 
 app.post("/api/resetpassword", userHandlers.resetPassword);
+app.put("/api/updatepassword", userHandlers.updatePassword);
+app.get("/api/veryfypass", userHandlers.verifyPass);

@@ -98,7 +98,7 @@ const postNewUser = (req, res) => {
     timeCost: 5,
     parallelism: 1,
   };
-  const { name, email, hashedPassword, tos, newsletter, regtoken } = req.body;
+  const { name, email, hashedPassword, tos, newsletter } = req.body;
 
   database
     .query("SELECT EXISTS(SELECT * from users WHERE email=?)", [email]) //  Verify Email
@@ -281,6 +281,76 @@ const resetPassword = (req, res) => {
     });
 };
 
+const updatePassword = (req, res) => {
+  const hashingOptions = {
+    type: argon2.argon2id,
+    memoryCost: 2 ** 16,
+    timeCost: 5,
+    parallelism: 1,
+  };
+
+  const { email, newhashedPassword, hashedPassword } = req.body;
+
+  database
+    .query("select * from users where email = ?", [email])
+    .then(([users]) => {
+      argon2
+        .hash(req.body.newpassword, hashingOptions)
+        .then((newhashedPassword) => {
+          req.body.newhashedPassword = newhashedPassword;
+          delete req.body.newpassword;
+          database
+            .query("update users set newhashedPassword = ? where email = ?", [
+              newhashedPassword,
+              email,
+            ])
+            .then(([result]) => {
+              database
+                .query("update users set hashedPassword = ? where email = ?", [
+                  newhashedPassword,
+                  email,
+                ])
+                .then(([result]) => {
+                  res.sendStatus(200);
+                });
+            })
+            .catch((err) => {
+              console.error(err);
+              res.status(401).send("Error editing the user");
+            });
+        });
+    })
+
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
+const verifyPass = (req, res) => {
+  const authHeader = req.get("authorization");
+  const [type, token] = authHeader.split(" ") || [];
+
+  if (token) {
+    try {
+      if (process.env.JWT_SECRET) {
+        const verifiedToken = jwt.verify(token, process.env.JWT_SECRET);
+
+        const { email } = verifiedToken;
+
+        database
+          .query("SELECT status FROM users where email = ?", [email])
+          .then(([result]) => {
+            res.sendStatus(200);
+          });
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(403).send("Please try again");
+    }
+  }
+};
+
 module.exports = {
   getUserInfo,
   updateUserInfo,
@@ -289,4 +359,6 @@ module.exports = {
   verifyUser,
   resendEmail,
   resetPassword,
+  updatePassword,
+  verifyPass,
 };
