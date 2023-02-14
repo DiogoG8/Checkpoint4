@@ -16,6 +16,7 @@ const {
   validateUserRegister,
   validateUserChanges,
   validateLogin,
+  validateresetPass,
 } = require("./users/userValidators");
 
 //Testing if the App listens and if
@@ -62,5 +63,5 @@ app.get("/api/confirmation", userHandlers.verifyUser); //TESTED with a mistake
 app.post("/api/resendemail", userHandlers.resendEmail);
 
 app.post("/api/resetpassword", userHandlers.resetPassword);
-app.put("/api/updatepassword", userHandlers.updatePassword);
+app.put("/api/updatepassword", validateresetPass, userHandlers.updatePassword);
 app.get("/api/veryfypass", userHandlers.verifyPass);

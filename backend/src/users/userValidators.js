@@ -95,8 +95,29 @@ const validateLogin = (req, res, next) => {
   }
 };
 
+const validateresetPass = (req, res, next) => {
+  const { newpassword } = req.body;
+  const errors = [];
+
+  if (newpassword == null) {
+    errors.push({ field: "newpassword", message: "This field is required" });
+  } else if (newpassword.length <= 10) {
+    errors.push({
+      field: "newpassword",
+      message: "Your password is not strong enough!",
+    });
+  }
+
+  if (errors.length) {
+    res.status(422).json({ validationErrors: errors });
+  } else {
+    next();
+  }
+};
+
 module.exports = {
   validateUserRegister,
   validateUserChanges,
   validateLogin,
+  validateresetPass,
 };

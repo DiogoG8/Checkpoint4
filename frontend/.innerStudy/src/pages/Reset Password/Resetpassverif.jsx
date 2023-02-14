@@ -1,12 +1,14 @@
-import React, { useDebugValue, useState, useEffect } from "react";
+import React, { useDebugValue, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import styles from "../Reset Password/resetverif.module.css";
 import jwt_decode from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
+import ResetContext from "../../contexts/resetsucesscontext";
 
 const VerifyPass = () => {
   const [verificationCode, setVerificationCode] = useState("");
   const [newpassword, setnewPassword] = useState("");
+  const { msgreset, setMsgreset } = useContext(ResetContext);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -22,8 +24,6 @@ const VerifyPass = () => {
   }, [newpassword]);
 
   function handleChangePass(e) {
-    const emailcode = jwt_decode(verificationCode).email;
-    console.log(email);
     e.preventDefault();
     axios
       .put("http://localhost:5005/api/updatepassword", {
@@ -33,10 +33,20 @@ const VerifyPass = () => {
       .then((response) => response.data)
       .then((data) => {
         console.log(data);
+        setMsgreset(
+          <div className={styles.linkstyle}>
+            Congratulations, your account was updated
+          </div>
+        );
         navigate("/");
       })
       .catch((error) => {
         console.log(error);
+        setError(
+          <div className={styles.flex111}>
+            Your new password should have over 10 digits!
+          </div>
+        );
       });
   }
   useEffect(() => {
@@ -87,6 +97,7 @@ const VerifyPass = () => {
             <button onClick={handleChangePass} className={styles.button}>
               <span>Change Password</span>
             </button>
+            {error}
           </form>
         </div>
       </div>

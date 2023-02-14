@@ -3,11 +3,13 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import TokenContext from "../../contexts/authtoken";
 import styles from "../Login/Login.module.css";
+import ResetContext from "../../contexts/resetsucesscontext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { authToken, setAuthToken } = useContext(TokenContext);
+  const { msgreset, setMsgreset } = useContext(ResetContext);
   const navigate = useNavigate();
   const [errors, setErrors] = useState("");
 
@@ -42,6 +44,7 @@ function Login() {
         navigate("/mainpage");
       })
       .catch((error) => {
+        setMsgreset("");
         if (error.response.status === 422 || error.response.status === 401) {
           setErrors(
             <div className={styles.linkstyle}>
@@ -98,6 +101,8 @@ function Login() {
             <span>Sign In</span>
           </button>
           {errors}
+          {msgreset}
+
           <Link className={styles.link} to="/register">
             Not a member? Sign Up Now!
           </Link>

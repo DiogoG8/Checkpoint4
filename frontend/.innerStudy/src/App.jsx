@@ -9,7 +9,7 @@ import MyProfile from "./pages/My Profile/MyProfile";
 import StudyMaterials from "./pages/Study Materials/StudyMaterials";
 import StudyMaterialsSingle from "./pages/Study Materials/StudyMaterialsSingle";
 import TokenContext from "./contexts/authtoken";
-import IdContext from "./contexts/idcontext";
+import ResetContext from "./contexts/resetsucesscontext";
 import Verify from "./pages/UserVerif/UserVerif";
 import RegisterVerify from "./pages/Register/RegisterVerifyEmail";
 import ResetPass from "./pages/Reset Password/Resetpass";
@@ -25,9 +25,10 @@ function App() {
   {
     /*We added this line so when the page refreshes the token still appears*/
   }
-  const [id, setId] = useState();
+  const [newpassword, setnewPassword] = useState("");
   const [content, setContent] = useState([]);
   const [counter, setCounter] = useState([]);
+  const [msgreset, setMsgreset] = useState("");
 
   useEffect(() => {
     axios
@@ -47,7 +48,9 @@ function App() {
       <TokenContext.Provider
         value={{ authToken: authToken, setAuthToken: setAuthToken }}
       >
-        <IdContext.Provider value={{ id: id, setId: setId }}>
+        <ResetContext.Provider
+          value={{ msgreset: msgreset, setMsgreset: setMsgreset }}
+        >
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/contactus" element={<ContactUs />} />
@@ -67,7 +70,7 @@ function App() {
               element={<StudyMaterialsSingle />}
             />
           </Routes>
-        </IdContext.Provider>
+        </ResetContext.Provider>
       </TokenContext.Provider>
     </>
   );
