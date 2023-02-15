@@ -66,8 +66,8 @@ const resendEmail = (req, res) => {
         res.sendStatus(200);
         mailer.sendMail(
           {
-            from: "diogogoliveira88@gmail.com",
-            to: "diogogoliveira88@gmail.com",
+            from: "chalkboardthecompany@gmail.com",
+            to: "chalkboardthecompany@gmail.com", //!!!SHOULD BE REQ.BODY.EMAIL IN THE FUTURE!!!
             subject: "The ChalkBoard Verification",
             text:
               "Please click on the following link to confirm your registration: " +
@@ -136,8 +136,8 @@ const postNewUser = (req, res) => {
                 res.location(`/api/users/${users.insertId}`).sendStatus(201);
                 mailer.sendMail(
                   {
-                    from: "diogogoliveira88@gmail.com",
-                    to: "diogogoliveira88@gmail.com",
+                    from: "chalkboardthecompany@gmail.com",
+                    to: "chalkboardthecompany@gmail.com", //!!!SHOULD BE REQ.BODY.EMAIL IN THE FUTURE!!!
                     subject: "The ChalkBoard Verification",
                     text:
                       "Please click on the following link to confirm your registration: " +
@@ -257,8 +257,8 @@ const resetPassword = (req, res) => {
         res.sendStatus(200);
         mailer.sendMail(
           {
-            from: "diogogoliveira88@gmail.com",
-            to: "diogogoliveira88@gmail.com",
+            from: "chalkboardthecompany@gmail.com",
+            to: "chalkboardthecompany@gmail.com", //!!!SHOULD BE REQ.BODY.EMAIL IN THE FUTURE!!!
             subject: "The ChalkBoard Password Reset",
             text: "To reset your password, press the link below " + url,
             html:
