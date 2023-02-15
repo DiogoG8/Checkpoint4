@@ -14,11 +14,10 @@ const postMessage = (req, res) => {
       res.location(`/api/contact/${message.insertId}`).sendStatus(201);
       mailer.sendMail(
         {
-          from: req.body.email,
-          to: "diogoguilherme88@gmail.com",
-          subject: req.body.topic,
-          text: req.body.issue,
-          html: req.body.issue,
+          from: "chalkboardthecompany@gmail.com",
+          to: "chalkboardthecompany@gmail.com",
+          subject: req.body.email,
+          text: req.body.issue + req.body.topic,
         },
         (err, info) => {
           if (err) console.error(err);
