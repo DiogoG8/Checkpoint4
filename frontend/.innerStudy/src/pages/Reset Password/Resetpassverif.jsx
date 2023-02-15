@@ -16,6 +16,7 @@ const VerifyPass = () => {
   const [buttonshow, setButtonshow] = useState(false);
   const [buttonshow2, setButtonshow2] = useState(false);
   const [checkpass, setCheckpass] = useState("");
+  const [checktoken, setChecktoken] = useState("");
 
   const togglePassword = (event) => {
     event.preventDefault();
@@ -56,6 +57,7 @@ const VerifyPass = () => {
         })
         .catch((error) => {
           console.log(error);
+
           setError(
             <div className={styles.flex111}>
               Your new password should have over 10 digits!
@@ -81,6 +83,8 @@ const VerifyPass = () => {
     if (verificationCode == null || verificationCode === "") {
       return;
     }
+    console.log("Test1");
+
     axios
       .get("http://localhost:5005/api/veryfypass", {
         headers: {
@@ -88,54 +92,77 @@ const VerifyPass = () => {
           Authorization: `Bearer ${verificationCode}`,
         },
       })
-      .then((response) => {
+
+      .then((response) => response.data)
+      .then((data) => {
         const emailcode = jwt_decode(verificationCode).email;
         console.log(emailcode);
         setEmail(emailcode);
+        console.log("Test Success");
+      })
+
+      .catch((err) => {
+        setChecktoken(<div>Test!</div>);
       });
   }, [verificationCode]);
 
   return (
     <div className={styles.container0}>
-      <div className={styles.title}>
-        The Chalkboard
-        <div className={styles.container1}>
-          In order to reset the password, send a request by filling the
-          information below!
-          <form className={styles.container2}>
-            <div className={styles.flex}>
-              <label htmlFor="newpassword">New Password</label>
-              <input
-                onChange={(e) => setnewPassword(e.target.value)}
-                id="newpassword"
-                name="newpassword"
-                type={buttonshow ? "text" : "password"}
-                value={newpassword}
-              />
-              <button className={styles.eye} onClick={togglePassword}></button>
-            </div>
-            <div className={styles.flex}>
-              <label htmlFor="passwordRepeat">Repeat Password</label>
-              <input
-                onChange={(e) => setPasswordRepeat(e.target.value)}
-                id="passwordRepeat"
-                name="passwordRepeat"
-                type={buttonshow2 ? "text" : "password"}
-                value={passwordRepeat}
-              />
-              <button
-                className={styles.eye2}
-                onClick={togglePassword2}
-              ></button>
-            </div>
-            <button onClick={handleChangePass} className={styles.button}>
-              <span>Change Password</span>
-            </button>
-            {error}
-            {checkpass}
-          </form>
+      {checktoken ? (
+        <div className={styles.title}>
+          The Chalkboard
+          <div className={styles.container10}>
+            Oops, something went wrong! Get back to the login and try to reset
+            the password again!
+          </div>
+          <Link className={styles.verify3} to="/">
+            Go back to the login page!
+          </Link>
         </div>
-      </div>
+      ) : (
+        <div className={styles.title}>
+          The Chalkboard
+          <div className={styles.container1}>
+            In order to reset the password, send a request by filling the
+            information below!
+            <form className={styles.container2}>
+              <div className={styles.flex}>
+                <label htmlFor="newpassword">New Password</label>
+                <input
+                  onChange={(e) => setnewPassword(e.target.value)}
+                  id="newpassword"
+                  name="newpassword"
+                  type={buttonshow ? "text" : "password"}
+                  value={newpassword}
+                />
+                <button
+                  className={styles.eye}
+                  onClick={togglePassword}
+                ></button>
+              </div>
+              <div className={styles.flex}>
+                <label htmlFor="passwordRepeat">Repeat Password</label>
+                <input
+                  onChange={(e) => setPasswordRepeat(e.target.value)}
+                  id="passwordRepeat"
+                  name="passwordRepeat"
+                  type={buttonshow2 ? "text" : "password"}
+                  value={passwordRepeat}
+                />
+                <button
+                  className={styles.eye2}
+                  onClick={togglePassword2}
+                ></button>
+              </div>
+              <button onClick={handleChangePass} className={styles.button}>
+                <span>Change Password</span>
+              </button>
+              {error}
+              {checkpass}
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -40,7 +40,8 @@ const RegisterVerify = () => {
         </div>
         {errors ? (
           <div onClick={handlerGoback} className={styles.verify4}>
-            Oops! Something went wrong. Back to the login page
+            Oops! Something went wrong. Try to login with your user info; a
+            message to verify the account, should appear!
           </div>
         ) : (
           <>

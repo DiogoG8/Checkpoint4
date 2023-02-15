@@ -13,8 +13,30 @@ function Login() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState("");
 
+  useEffect(() => {
+    setErrors("");
+  }, [password, email]);
   function handleGoReset() {
     window.open("/sendreset", "_blank");
+  }
+
+  function handleGoVerify() {
+    window.sessionStorage.setItem("Email", email);
+    const emailstorage = sessionStorage.getItem("Email");
+
+    axios
+      .post("http://localhost:5005/api/resendemail", {
+        email: emailstorage,
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrors(error);
+      });
+    window.open("/registerverify", "_blank");
   }
 
   function handleSubmit(event) {
@@ -58,6 +80,9 @@ function Login() {
           setErrors(
             <div className={styles.linkstyle}>
               <div>The email isn't verified! Check your email 📧</div>
+              <div className={styles.link4} onClick={handleGoVerify}>
+                Didn't verify the email! Do it now!
+              </div>
             </div>
           );
         } else if (error.response.status === 500) {

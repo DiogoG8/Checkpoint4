@@ -28,7 +28,6 @@ function ContactUs() {
 
   return (
     <>
-      <Navbar />
       <div className={styles.title}>.innerStudy</div>
       <div className={styles.container0}>
         <div className={styles.container1}>

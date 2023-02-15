@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Verify = () => {
   const [verificationCode, setVerificationCode] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg2, setErrorMsg2] = useState("");
 
   useEffect(() => {
     if (window.location.search) {
@@ -39,6 +40,17 @@ const Verify = () => {
               Your account is already verified!
             </div>
           );
+        } else if (errorMsg.response.status === 403) {
+          setErrorMsg2(
+            <div className={styles.verify2}>
+              Oops, something went wrong!
+              <div className={styles.verify4}>
+                Go back to the login page, and try to login with your user info.
+                If you are not verified a message to verify the account, should
+                appear!
+              </div>
+            </div>
+          );
         }
       });
   }, [verificationCode]);
@@ -47,6 +59,8 @@ const Verify = () => {
     <div className={styles.verify}>
       {errorMsg ? (
         errorMsg
+      ) : errorMsg2 ? (
+        errorMsg2
       ) : (
         <div className={styles.verify2}> Welcome to Chalkboard</div>
       )}
