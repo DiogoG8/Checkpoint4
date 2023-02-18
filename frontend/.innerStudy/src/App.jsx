@@ -14,6 +14,7 @@ import Verify from "./pages/UserVerif/UserVerif";
 import RegisterVerify from "./pages/Register/RegisterVerifyEmail";
 import ResetPass from "./pages/Reset Password/Resetpass";
 import VerifyPass from "./pages/Reset Password/Resetpassverif";
+import TestSwiper from "./pages/TestingSwipper/swiper";
 import axios from "axios";
 
 import { Link, Route, Router, Routes } from "react-router-dom";
@@ -60,6 +61,7 @@ function App() {
             <Route path="/confirmation" element={<Verify />} />
             <Route path="/sendreset" element={<ResetPass />} />
             <Route path="/myprofile/:id" element={<MyProfile />} />
+            <Route path="/testing" element={<TestSwiper />} />
             <Route path="passwordreset" element={<VerifyPass />} />
             <Route
               path="/studymaterials"

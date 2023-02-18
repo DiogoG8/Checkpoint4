@@ -1,0 +1,43 @@
+
+
+    .verify2{
+        margin-bottom: 15rem;
+    }
+
+    .img1 {
+margin-left: 0rem;
+
+        width: 100%;
+  
+      
+       
+    }
+
+    .test1{
+        background-color: black;
+        width: 50%;
+        margin: auto;
+        height: 90%;
+        border-radius: 13rem;
+        
+     
+    }
+
+    .test2{
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+        font-size: 5rem;
+        text-align: center;
+        
+    }
+
+
+
+
+      .test3{
+        --swiper-pagination-color: #fff;
+        --swiper-navigation-color: #fff;
+        height: 20rem;
+        border-radius: 13rem;
+  
+      }
