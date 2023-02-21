@@ -1,9 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useLayoutEffect } from "react";
 import axios from "axios";
 import styles from "../Study Materials/StudySingle.module.css";
 import Footer from "../../components/footer";
 import DOMPurify from "dompurify";
+import "../Study Materials/Study.css";
 
 function StudyMaterialsSingle() {
   const [topic, setTopic] = useState("");
@@ -63,3 +64,10 @@ function StudyMaterialsSingle() {
 }
 
 export default StudyMaterialsSingle;
+
+{
+  /*Tailwind Classes Used:
+"text-pink-700 text-opacity-80";
+"text-green-700 text-opacity-80"
+*/
+}
