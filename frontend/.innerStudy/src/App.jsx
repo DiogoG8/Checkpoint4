@@ -62,7 +62,7 @@ function App() {
             <Route path="/sendreset" element={<ResetPass />} />
             <Route path="/myprofile/:id" element={<MyProfile />} />
             <Route path="/testing" element={<TestSwiper />} />
-            <Route path="passwordreset" element={<VerifyPass />} />
+            <Route path="/passwordreset" element={<VerifyPass />} />
             <Route
               path="/studymaterials"
               element={<StudyMaterials content={content} counter={counter} />}

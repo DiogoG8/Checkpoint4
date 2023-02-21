@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const mailer = require("../contact/mailer");
 const emailCheck = require("email-check");
 
+//DONE
 const getUserInfo = (req, res) => {
   const id = parseInt(req.params.id);
 
@@ -22,6 +23,7 @@ const getUserInfo = (req, res) => {
     });
 };
 
+//DONE
 const updateUserInfo = (req, res) => {
   const id = parseInt(req.params.id);
   const { name, email } = req.body;
@@ -45,6 +47,7 @@ const updateUserInfo = (req, res) => {
     });
 };
 
+//DONE
 const resendEmail = (req, res) => {
   const { email } = req.body;
 
@@ -91,6 +94,8 @@ const resendEmail = (req, res) => {
       res.sendStatus(500);
     });
 };
+
+//DONE
 const postNewUser = (req, res) => {
   const hashingOptions = {
     type: argon2.argon2id,
@@ -162,6 +167,7 @@ const postNewUser = (req, res) => {
     });
 };
 
+//DONE
 const verifyUser = (req, res) => {
   const authHeader = req.get("authorization");
   const [type, token] = authHeader.split(" ") || [];
@@ -195,6 +201,7 @@ const verifyUser = (req, res) => {
   }
 };
 
+//DONE
 const verifyEmailandPassword = (req, res) => {
   const { email } = req.body;
 
@@ -281,6 +288,7 @@ const resetPassword = (req, res) => {
     });
 };
 
+//DONE
 const updatePassword = (req, res) => {
   const hashingOptions = {
     type: argon2.argon2id,
